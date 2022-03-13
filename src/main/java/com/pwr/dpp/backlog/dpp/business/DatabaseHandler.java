@@ -8,4 +8,6 @@ import java.util.List;
 public interface DatabaseHandler {
     List<Task> getAllTasks();
     List<Comment> getCommentsForTask(Integer taskId);
+    void createUser(String username);
+    void saveTask(Task task);
 }

@@ -20,6 +20,11 @@ public class ApplicationSetup {
             }
 
             @Override
+            public List<Comment> getCommentsForTask(Integer taskId) {
+                return null;
+            }
+
+            @Override
             public List<String> getAllUsers() {
                 return null;
             }

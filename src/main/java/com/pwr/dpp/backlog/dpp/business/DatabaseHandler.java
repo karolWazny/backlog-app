@@ -8,6 +8,7 @@ import java.util.List;
 public interface DatabaseHandler {
     List<Task> getAllTasks();
     List<Comment> getCommentsForTask(Integer taskId);
-    void createUser(String username);
+    boolean createUser(String username);
     void saveTask(Task task);
+    boolean logAs(String username) throws NoSuchUserException;
 }

@@ -9,23 +9,20 @@ import com.pwr.dpp.backlog.dpp.business.orm.Task;
 public class MainController {
     private DatabaseHandler databaseHandler;
     private LoggedUserRepository loggedUserRepository;
+    private BoardModel boardModel;
+    private final LogInModel logInModel = new LogInModel();
+    private final CreateTaskModel createTaskModel = new CreateTaskModel();
 
     public BoardModel boardModel(){
-        BoardModel boardModel = new BoardModel(databaseHandler);
-        boardModel.setLoggedUserRepository(loggedUserRepository);
         return boardModel;
     }
 
     public LogInModel logInModel(){
-        LogInModel output = new LogInModel();
-        output.setLoggedUserRepository(loggedUserRepository);
-        output.setDatabaseHandler(databaseHandler);
-        return output;
+        logInModel.setLoggedUserRepository(loggedUserRepository);
+        return logInModel;
     }
 
     public CreateTaskModel createTaskModel(){
-        CreateTaskModel createTaskModel = new CreateTaskModel();
-        createTaskModel.setDatabaseHandler(databaseHandler);
         return createTaskModel;
     }
 
@@ -46,9 +43,13 @@ public class MainController {
 
     public void setDatabaseHandler(DatabaseHandler databaseHandler) {
         this.databaseHandler = databaseHandler;
+        logInModel.setDatabaseHandler(databaseHandler);
+        createTaskModel.setDatabaseHandler(databaseHandler);
+        boardModel = new BoardModel(databaseHandler);
     }
 
     public void setLoggedUserRepository(LoggedUserRepository loggedUserRepository) {
         this.loggedUserRepository = loggedUserRepository;
+        logInModel.setLoggedUserRepository(loggedUserRepository);
     }
 }

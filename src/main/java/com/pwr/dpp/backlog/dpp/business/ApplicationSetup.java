@@ -45,12 +45,22 @@ public class ApplicationSetup {
             }
 
             @Override
+            public void saveTasks(List<Task> tasks) {
+
+            }
+
+            @Override
             public boolean logAs(String username) throws NoSuchUserException {
                 return false;
             }
 
             @Override
             public void saveComment(Comment comment) {
+
+            }
+
+            @Override
+            public void saveComments() {
 
             }
         });

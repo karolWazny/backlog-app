@@ -7,12 +7,15 @@ import java.util.List;
 
 public interface DatabaseHandler {
     List<Task> getAllTasks();
-    List<Comment> getAllComments();
-    List<Comment> getCommentsForTask(Integer taskId);
-    List<String> getAllUsers();
-    boolean createUser(String username);
     void saveTask(Task task);
     void deleteTask(Task task);
-    boolean logAs(String username) throws NoSuchUserException;
+    void saveTasks(List<Task> tasks);
+    List<Comment> getCommentsForTask(Integer taskId);
+    List<Comment> getAllComments();
     void saveComment(Comment comment);
+    void saveComments(List<Comment>);
+    List<String> getAllUsers();
+    boolean createUser(String username);
+    boolean logAs(String username) throws NoSuchUserException;
+
 }

@@ -1,10 +1,12 @@
 package com.pwr.dpp.backlog.dpp.business;
 
 import com.pwr.dpp.backlog.dpp.business.orm.Category;
+import com.pwr.dpp.backlog.dpp.business.orm.Comment;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,12 +14,14 @@ import java.util.stream.Stream;
 
 public class BoardModel implements Observable {
     private final List<Task> tasks;
+    private final List<Comment> comments;
     private final DatabaseHandler databaseHandler;
     private final List<InvalidationListener> listeners = new LinkedList<>();
 
     public BoardModel(DatabaseHandler handler){
         this.databaseHandler = handler;
         tasks = databaseHandler.getAllTasks();
+        comments = databaseHandler.getAllComments();
     }
 
     public List<Task> getToDo(){
@@ -88,6 +92,31 @@ public class BoardModel implements Observable {
     private Stream<Task> tasksWithCategory(Category category){
         return tasks.stream()
                 .filter(task -> task.getCategory().equals(category));
+    }
+
+    private List<Comment> listCommentsUnderTask(Integer taskId) {
+        return commentUnderTask(taskId).collect(Collectors.toList());
+    }
+
+    private Stream<Comment> commentUnderTask (Integer taskId) {
+        return comments.stream().filter(comment -> comment.getId().equals(taskId));
+    }
+
+    private List<Comment> listCommentsUnderUser(String user) {
+        return commentUnderUser(user).collect(Collectors.toList());
+    }
+
+    private Stream<Comment> commentUnderUser (String user) {
+        return comments.stream().filter(comment -> comment.getAuthor().equals(user));
+    }
+    
+    private List<Comment> listCommentsUnderCategory (Category category) {
+        List<Task> tempList = listTasksWithCategory(category);
+        List<Comment> result = new ArrayList<>();
+        for (Task task: tempList) {
+            result.addAll(listCommentsUnderTask(task.getId()));
+        }
+        return result;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface DatabaseHandler {
     List<Task> getAllTasks();
-    List<Comment> getCommentsForTask(Integer taskId);
+    List<Comment> getAllComments();
     boolean createUser(String username);
     void saveTask(Task task);
     void deleteTask(Task task);

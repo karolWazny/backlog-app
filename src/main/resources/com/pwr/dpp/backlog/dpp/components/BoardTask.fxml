@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxWidth="204.0" minHeight="52.0" minWidth="204.0" prefHeight="400.0" prefWidth="204.0" style="-fx-background-color: #5E6366; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label minWidth="180.0" prefWidth="180.0" text="[TASK_TITLE]" textFill="WHITE" wrapText="true">
+         <VBox.margin>
+            <Insets left="11.0" top="6.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Segoe UI Bold" size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane maxHeight="15.0" minHeight="15.0" prefHeight="200.0" prefWidth="200.0">
+         <VBox.margin>
+            <Insets bottom="10.0" left="11.0" right="11.0" top="6.0" />
+         </VBox.margin>
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icon-user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="17.0" layoutY="-2.0" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" text="[ASSIGNED_USER]" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="12.0" fitWidth="200.0" layoutX="155.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/icon-comment.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="170.0" layoutY="-2.0" maxWidth="20.0" minWidth="20.0" prefWidth="20.0" text="[0]" textFill="WHITE">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63057e1d-c159-46fd-88b1-1ea923226cfa" name="Changes" comment="" />
+    <list default="true" id="63057e1d-c159-46fd-88b1-1ea923226cfa" name="Changes" comment="Klasa Database obsługująca bazę danych" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +39,29 @@
       <option name="presentableId" value="Default" />
       <updated>1647273886963</updated>
     </task>
+    <task id="LOCAL-00001" summary="Klasa Database obsługująca bazę danych">
+      <created>1647294140421</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647294140421</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Klasa Database obsługująca bazę danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="Klasa Database obsługująca bazę danych" />
   </component>
 </project>

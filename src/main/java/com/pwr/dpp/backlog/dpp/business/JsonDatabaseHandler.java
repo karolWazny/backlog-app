@@ -120,7 +120,6 @@ public class JsonDatabaseHandler implements DatabaseHandler {
 
     /**
      * Returns loaded tasks.
-     *
      * @return {@link List} of tasks.
      */
     @Override

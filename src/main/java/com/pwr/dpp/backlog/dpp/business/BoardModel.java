@@ -17,6 +17,7 @@ public class BoardModel implements Observable {
     private final List<Comment> comments;
     private final DatabaseHandler databaseHandler;
     private final List<InvalidationListener> listeners = new LinkedList<>();
+    private LoggedUserRepository loggedUserRepository;
 
     public BoardModel(DatabaseHandler handler){
         this.databaseHandler = handler;
@@ -129,10 +130,14 @@ public class BoardModel implements Observable {
         listeners.remove(invalidationListener);
     }
 
-    private void invalidate(){
+    public void invalidate(){
         for (InvalidationListener listener:
              listeners) {
             listener.invalidated(this);
         }
+    }
+
+    public void setLoggedUserRepository(LoggedUserRepository loggedUserRepository) {
+        this.loggedUserRepository = loggedUserRepository;
     }
 }

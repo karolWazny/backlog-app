@@ -1,6 +1,7 @@
 package com.pwr.dpp.backlog.dpp.business.orm;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Comment {
     private Integer id;
@@ -13,19 +14,35 @@ public class Comment {
 
     public void setId(Integer id) {this.id = id;}
 
-    public Task getTask() {return task;}
+    public Task getTask() {
+        return task;
+    }
 
-    public void setTask(Task task) {this.task = task;}
+    public void setTask(Task task) {
+        this.task = Objects.requireNonNull(task);
+    }
 
-    public LocalDate getDateCreated() {return dateCreated;}
+    public LocalDate getDateCreated() {
+        return dateCreated;
+    }
 
-    public void setDateCreated(LocalDate dateCreated) {this.dateCreated = dateCreated;}
+    public void setDateCreated(LocalDate dateCreated) {
+        this.dateCreated = dateCreated;
+    }
 
-    public String getContent() {return content;}
+    public String getContent() {
+        return content;
+    }
 
-    public void setContent(String content) {this.content = content;}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-    public String getAuthor() {return author;}
+    public String getAuthor() {
+        return author;
+    }
 
-    public void setAuthor(String author) {this.author = author;}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 }

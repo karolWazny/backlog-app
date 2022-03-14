@@ -1,10 +1,12 @@
 package com.pwr.dpp.backlog.dpp.controllers;
 
+import com.pwr.dpp.backlog.dpp.SceneController;
 import com.pwr.dpp.backlog.dpp.business.LogInModel;
 import com.pwr.dpp.backlog.dpp.business.NoSuchUserException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -32,12 +34,8 @@ public class LoginController {
         try {
             boolean loginResult = this.loginModel.logAs(username);
             if (loginResult) {
-                System.out.println("SUCCESS!");
-                // TODO: redirect to board view
                 Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                this.sceneController.switchToLoginScene(stage);
-                // System.out.println((Stage)((Node)event.getSource()).getScene().getWindow());
-                // this.sceneController.switchToLoginScene(stage);
+                this.sceneController.switchToBoardScene(stage);
             } else {
                 System.out.println("could not log in");
                 throw new RuntimeException("Could not log in");

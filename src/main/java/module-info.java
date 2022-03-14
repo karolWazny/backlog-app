@@ -3,6 +3,7 @@ module com.pwr.dpp.backlog.dpp {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
+    requires org.controlsfx.controls;
 
     opens com.pwr.dpp.backlog.dpp to javafx.fxml;
     opens com.pwr.dpp.backlog.dpp.controllers;

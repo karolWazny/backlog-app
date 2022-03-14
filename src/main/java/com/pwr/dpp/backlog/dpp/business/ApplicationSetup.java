@@ -44,14 +44,20 @@ public class ApplicationSetup {
 
             }
 
+
             @Override
-            public void saveTasks(List<Task> tasks) {
+            public boolean logAs(String username) {
+                return false;
+            }
+
+            @Override
+            public void save() {
 
             }
 
             @Override
-            public boolean logAs(String username) throws NoSuchUserException {
-                return false;
+            public void load() {
+
             }
 
             @Override
@@ -59,10 +65,6 @@ public class ApplicationSetup {
 
             }
 
-            @Override
-            public void saveComments(List<Comment> comments)  {
-
-            }
         });
         mainController.setLoggedUserRepository(LoggedUserRepositoryImpl.getInstance());
         return mainController;

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.BacklogControllers.BoardController">
+    <children>
+        <ScrollPane layoutY="58.0" prefHeight="709.0" prefWidth="1024.0" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <content>
+                <VBox layoutX="42.0" prefHeight="200.0" prefWidth="1022.0">
+                    <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="&lt; Go back to team board" textFill="WHITE">
+                            <font>
+                                <Font name="Segoe UI" size="14.0" />
+                            </font>
+                        </Button>
+                        <VBox prefWidth="940.0" style="-fx-background-color: #2A2E2F; -fx-background-radius: 10;">
+                            <children>
+                                <AnchorPane>
+                                    <children>
+                                        <Label prefHeight="32.0" prefWidth="830.0" text="[TASK_TITLE]">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="25.0" />
+                                            </font>
+                                        </Label>
+                                        <Button layoutX="848.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;">
+                                            <graphic>
+                                                <ImageView fitHeight="10.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                    <image>
+                                                        <Image url="@icons/icon-menu.png" />
+                                                    </image>
+                                                </ImageView>
+                                            </graphic></Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets bottom="8.0" />
+                                    </VBox.margin>
+                                </AnchorPane>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <VBox.margin>
+                                        <Insets right="10.0" />
+                                    </VBox.margin>
+                                    <children>
+                                        <Label text="Created on:">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" />
+                                    </padding>
+                                </AnchorPane>
+                                <AnchorPane layoutX="40.0" layoutY="96.0" prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <Label text="Assignee:">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="144.0" maxWidth="700.0" text="[ASSIGNED_USER]">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="120.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@icons/icon-user.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="8.0" />
+                                    </padding>
+                                </AnchorPane>
+                                <AnchorPane layoutX="40.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <Label text="Status:">
+                                            <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <Label layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" />
+                                    </padding>
+                                </AnchorPane>
+                                <Label maxWidth="884.0" text="[TASK_DESCRIPTION]" wrapText="true">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="Segoe UI" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Line endX="785.0" layoutX="141.0" layoutY="131.0" startX="-100.0" stroke="#3e4345">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin>
+                                </Line>
+                                <Label text="Discussion">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="20.0" />
+                                    </font>
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin></Label>
+                                <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+                                    <VBox.margin>
+                                        <Insets right="10.0" />
+                                    </VBox.margin>
+                                </ListView>
+                                <Line endX="785.0" startX="-100.0" stroke="#3e4345">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" top="10.0" />
+                                    </VBox.margin></Line>
+                                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                    <children>
+                                        <ImageView fitHeight="37.0" fitWidth="37.0" layoutX="12.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@icons/icon-user.png" />
+                                            </image>
+                                        </ImageView>
+                                        <TextArea layoutX="62.0" prefHeight="70.0" prefWidth="826.0" promptText="Write a comment here..." style="-fx-text-fill: white; -fx-border-size: 0 0 0 0;" stylesheets="@styles/stylesheet.css">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font>
+                                        </TextArea>
+                                        <Button layoutX="779.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #74C249; -fx-text-fill: white;" text="Add comment">
+                                            <font>
+                                                <Font name="Segoe UI" size="14.0" />
+                                            </font></Button>
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets right="10.0" top="10.0" />
+                                    </VBox.margin>
+                                </AnchorPane>
+                            </children>
+                            <padding>
+                                <Insets bottom="20.0" left="30.0" right="10.0" top="20.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                    <padding>
+                        <Insets left="42.0" right="42.0" />
+                    </padding>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <?import org.controlsfx.control.*?>
 
-<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.BacklogControllers.BoardController">
+<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.controllers.BoardController">
     <children>
         <Label layoutX="42.0" layoutY="57.0" text="Team board" textFill="WHITE">
             <font>

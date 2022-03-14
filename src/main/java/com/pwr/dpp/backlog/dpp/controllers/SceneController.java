@@ -14,16 +14,40 @@ public class SceneController {
     private Scene scene;
     private Parent root;
 
-    public void switchToLoginScene(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void switchScene(Stage stage, String sceneFxml) throws Exception {
+        try {
+            this.root = FXMLLoader.load(getClass().getResource("../resources/com/pwr/dpp/backlog/dpp/" + sceneFxml));
+        } catch (Exception e) {
+            System.out.println("1");
+            System.out.println(e);
+        }
+        this.stage = stage;
+        try {
+            this.scene = new Scene(root);
+        } catch (Exception e) {
+            System.out.println("2");
+            System.out.println(e);
+        }
+        try {
+            this.stage.setScene(scene);
+        } catch (Exception e) {
+            System.out.println("3");
+            System.out.println(e);
+        }
+        try {
+            this.stage.show();
+        } catch (Exception e) {
+            System.out.println("4");
+            System.out.println(e);
+        }
     }
 
-    public void switchToBoardScene(ActionEvent event) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void switchToLoginScene(Stage stage) throws Exception {
+        this.switchScene(stage, "LoginScene.fxml");
+    }
+
+    public void switchToBoardScene(Stage stage) throws Exception {
+        this.switchScene(stage, "BoardScene.fxml");
     }
 
     public void switchToTaskDetailsScene(ActionEvent event) throws Exception {

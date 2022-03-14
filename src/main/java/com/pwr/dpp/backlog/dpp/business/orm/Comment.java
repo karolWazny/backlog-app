@@ -3,12 +3,16 @@ package com.pwr.dpp.backlog.dpp.business.orm;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-public class Comment {
+public class Comment implements Comparable<Comment>{
     private Integer id;
     private Task task;
     private LocalDateTime timeCreated;
     private String content;
     private String author;
+
+    public Comment() {
+        timeCreated = LocalDateTime.now();
+    }
 
     public Integer getId() {return id;}
 
@@ -44,5 +48,10 @@ public class Comment {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    @Override
+    public int compareTo(Comment o) {
+        return this.timeCreated.compareTo(o.timeCreated);
     }
 }

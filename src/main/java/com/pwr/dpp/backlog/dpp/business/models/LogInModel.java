@@ -2,18 +2,17 @@ package com.pwr.dpp.backlog.dpp.business.models;
 
 import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
 import com.pwr.dpp.backlog.dpp.business.LoggedUserRepository;
-import com.pwr.dpp.backlog.dpp.business.NoSuchUserException;
 
 public class LogInModel {
     private DatabaseHandler databaseHandler;
     private LoggedUserRepository loggedUserRepository;
 
-    public boolean logAs(String user) throws NoSuchUserException {
-        /* boolean logInSuccessful =  databaseHandler.logAs(user);
+    public boolean logAs(String user){
+        boolean logInSuccessful =  databaseHandler.logAs(user);
         if(logInSuccessful){
             loggedUserRepository.setLoggedUser(user);
         }
-        return logInSuccessful; */
+        return logInSuccessful;
         return true;
     }
 

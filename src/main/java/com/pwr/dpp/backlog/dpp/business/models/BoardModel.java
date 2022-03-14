@@ -22,8 +22,8 @@ public class BoardModel implements Observable {
 
     public BoardModel(DatabaseHandler handler){
         this.databaseHandler = handler;
-        tasks = databaseHandler.getAllTasks();
-        comments = databaseHandler.getAllComments();
+        tasks = databaseHandler.getTasks();
+        comments = databaseHandler.getComments();
     }
 
     public List<Task> getToDo(){

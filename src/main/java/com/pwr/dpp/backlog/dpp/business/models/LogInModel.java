@@ -13,6 +13,7 @@ public class LogInModel {
             loggedUserRepository.setLoggedUser(user);
         }
         return logInSuccessful;
+        return true;
     }
 
     public void createUser(String username){

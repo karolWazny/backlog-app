@@ -1,5 +1,6 @@
 package com.pwr.dpp.backlog.dpp;
 
+import com.pwr.dpp.backlog.dpp.business.MainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,10 +22,12 @@ public class SceneController {
 
     public void switchToLoginScene(Stage stage) throws Exception {
         this.switchScene(stage, "LoginScene.fxml");
+        stage.setTitle("Backlogger - Sign in");
     }
 
     public void switchToBoardScene(Stage stage) throws Exception {
         this.switchScene(stage, "BoardScene.fxml");
+        stage.setTitle("Backlogger - Team board");
     }
 
     public void switchToTaskDetailsScene(ActionEvent event) throws Exception {

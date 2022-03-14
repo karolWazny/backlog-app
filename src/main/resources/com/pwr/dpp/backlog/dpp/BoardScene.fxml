@@ -41,9 +41,9 @@
                                 <Circle fill="#15ccf2" layoutX="15.0" layoutY="19.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
                             </children></AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
-                            </content>
+                     <content>
+                        <VBox maxHeight="586.0" maxWidth="224.0" minHeight="581.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                     </content>
                         </ScrollPane>
                     </items>
                 </SplitPane>

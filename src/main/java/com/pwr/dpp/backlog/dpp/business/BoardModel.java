@@ -103,6 +103,10 @@ public class BoardModel implements Observable {
         return comments.stream().filter(comment -> comment.getId().equals(taskId));
     }
 
+    private Integer countCommentsUnderTask (Integer taskId) {
+        return listCommentsUnderTask(taskId).size();
+    }
+
     private List<Comment> listCommentsUnderUser(String user) {
         return commentUnderUser(user).collect(Collectors.toList());
     }

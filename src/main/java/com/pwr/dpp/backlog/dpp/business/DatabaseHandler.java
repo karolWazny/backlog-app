@@ -10,5 +10,6 @@ public interface DatabaseHandler {
     List<Comment> getCommentsForTask(Integer taskId);
     boolean createUser(String username);
     void saveTask(Task task);
+    void deleteTask(Task task);
     boolean logAs(String username) throws NoSuchUserException;
 }

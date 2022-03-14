@@ -22,6 +22,10 @@ public class TaskDetailsModel implements Observable {
 
     private List<Comment> comments;
 
+    public TaskDetailsModel(Task task) {
+        this.task = task;
+    }
+
     public List<String> getUsers(){
         return databaseHandler.getAllUsers();
     }

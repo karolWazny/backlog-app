@@ -1,9 +1,12 @@
-package com.pwr.dpp.backlog.dpp.business;
+package com.pwr.dpp.backlog.dpp.business.models;
+
+import com.pwr.dpp.backlog.dpp.business.orm.Category;
 
 public class CreateTaskInfo {
     private String title;
     private String description;
     private String username;
+    private Category category;
 
     public String getTitle() {
         return title;
@@ -27,5 +30,13 @@ public class CreateTaskInfo {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

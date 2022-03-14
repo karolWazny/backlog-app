@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
+
+<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.BacklogControllers.BoardController">
+    <children>
+        <Label layoutX="42.0" layoutY="57.0" text="Team board" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI Bold" size="25.0" />
+            </font>
+        </Label>
+        <GridPane layoutY="101.0" prefHeight="627.0" prefWidth="1024.0" stylesheets="@styles/stylesheet.css">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="42.0" minWidth="10.0" prefWidth="42.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="984.0" minWidth="224.0" prefWidth="224.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="10.0" prefWidth="15.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="984.0" minWidth="224.0" prefWidth="224.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="10.0" prefWidth="15.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="984.0" minWidth="224.0" prefWidth="224.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="15.0" minWidth="15.0" prefWidth="15.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="984.0" minWidth="224.0" prefWidth="224.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="42.0" minWidth="10.0" prefWidth="42.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #2A2E2F; -fx-background-radius: 10; -fx-padding: 0 1 0 1;" GridPane.columnIndex="1">
+                    <items>
+                        <AnchorPane maxHeight="35.0" minHeight="35.0" minWidth="224.0" prefHeight="35.0" prefWidth="224.0">
+                            <children>
+                                <Label layoutX="26.0" layoutY="10.0" text="Open" textFill="WHITE">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Circle fill="#15ccf2" layoutX="15.0" layoutY="19.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+                            </children></AnchorPane>
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+                <SplitPane dividerPositions="0.5" layoutX="51.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #2A2E2F; -fx-background-radius: 10; -fx-padding: 0 1 0 1;" GridPane.columnIndex="3">
+                    <items>
+                        <AnchorPane maxHeight="35.0" minHeight="35.0" minWidth="224.0" prefHeight="35.0" prefWidth="224.0">
+                            <children>
+                                <Label layoutX="26.0" layoutY="10.0" text="To do" textFill="WHITE">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Circle fill="#f4aa17" layoutX="15.0" layoutY="19.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+                            </children>
+                        </AnchorPane>
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+                <SplitPane dividerPositions="0.5" layoutX="290.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #2A2E2F; -fx-background-radius: 10; -fx-padding: 0 1 0 1;" GridPane.columnIndex="5">
+                    <items>
+                        <AnchorPane maxHeight="35.0" minHeight="35.0" minWidth="224.0" prefHeight="35.0" prefWidth="224.0">
+                            <children>
+                                <Label layoutX="26.0" layoutY="10.0" text="In progress" textFill="WHITE">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Circle fill="#74c249" layoutX="15.0" layoutY="19.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+                            </children>
+                        </AnchorPane>
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+                <SplitPane dividerPositions="0.5" layoutX="529.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" style="-fx-background-color: #2A2E2F; -fx-background-radius: 10; -fx-padding: 0 1 0 1;" GridPane.columnIndex="7">
+                    <items>
+                        <AnchorPane maxHeight="35.0" minHeight="35.0" minWidth="224.0" prefHeight="35.0" prefWidth="224.0">
+                            <children>
+                                <Label layoutX="26.0" layoutY="10.0" text="Closed" textFill="WHITE">
+                                    <font>
+                                        <Font name="Segoe UI Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <Circle fill="#b4b4b4" layoutX="15.0" layoutY="19.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" />
+                            </children>
+                        </AnchorPane>
+                        <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                            </content>
+                        </ScrollPane>
+                    </items>
+                </SplitPane>
+            </children>
+        </GridPane>
+        <Button layoutX="894.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #74C249;" text="+ Add task" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <ToggleSwitch layoutX="706.0" layoutY="59.0" prefHeight="30.0" prefWidth="38.0" style="-fx-text-fill: white;" stylesheets="@styles/stylesheet.css" textAlignment="RIGHT" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI" size="14.0" />
+            </font></ToggleSwitch>
+        <Label layoutX="751.0" layoutY="65.0" text="Show only my tasks" textFill="WHITE">
+            <font>
+                <Font name="Segoe UI" size="14.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

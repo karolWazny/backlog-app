@@ -1,14 +1,27 @@
 package com.pwr.dpp.backlog.dpp.business.orm;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Task {
     private Integer id;
     private String name;
     private String description;
-    private LocalDateTime timeCreated;
+    private Date timeCreated;
     private String user;
     private Category category;
+
+    public Task() {
+    }
+
+    public Task(Integer id, String name, String description, Date timeCreated, String user, Category category) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.timeCreated = timeCreated;
+        this.user = user;
+        this.category = category;
+    }
 
     public Integer getId() {
         return id;
@@ -34,11 +47,11 @@ public class Task {
         this.description = description;
     }
 
-    public LocalDateTime getTimeCreated() {
+    public Date getTimeCreated() {
         return timeCreated;
     }
 
-    public void setTimeCreated(LocalDateTime dateCreated) {
+    public void setTimeCreated(Date dateCreated) {
         this.timeCreated = dateCreated;
     }
 

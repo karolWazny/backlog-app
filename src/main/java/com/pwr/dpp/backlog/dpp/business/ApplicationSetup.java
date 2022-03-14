@@ -10,12 +10,12 @@ public class ApplicationSetup {
         MainController mainController = new MainController();
         mainController.setDatabaseHandler(new DatabaseHandler() {
             @Override
-            public List<Task> getAllTasks() {
+            public List<Task> getTasks() {
                 return null;
             }
 
             @Override
-            public List<Comment> getAllComments() {
+            public List<Comment> getComments() {
                 return null;
             }
 
@@ -25,7 +25,7 @@ public class ApplicationSetup {
             }
 
             @Override
-            public List<String> getAllUsers() {
+            public List<String> getUsers() {
                 return null;
             }
 
@@ -60,7 +60,7 @@ public class ApplicationSetup {
             }
 
             @Override
-            public void saveComments() {
+            public void saveComments(List<Comment> comments)  {
 
             }
         });

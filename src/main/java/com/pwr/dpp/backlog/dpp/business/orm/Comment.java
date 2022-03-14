@@ -1,17 +1,26 @@
 package com.pwr.dpp.backlog.dpp.business.orm;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 public class Comment implements Comparable<Comment>{
     private Integer id;
     private Task task;
-    private LocalDateTime timeCreated;
+    private Date timeCreated;
     private String content;
     private String author;
 
+    public Comment(Integer id, Task task, Date timeCreated, String content, String author) {
+        this.id = id;
+        this.task = task;
+        this.timeCreated = timeCreated;
+        this.content = content;
+        this.author = author;
+    }
+
     public Comment() {
-        timeCreated = LocalDateTime.now();
+        timeCreated = new Date(System.currentTimeMillis());
     }
 
     public Integer getId() {return id;}
@@ -26,11 +35,11 @@ public class Comment implements Comparable<Comment>{
         this.task = Objects.requireNonNull(task);
     }
 
-    public LocalDateTime getTimeCreated() {
+    public Date getTimeCreated() {
         return timeCreated;
     }
 
-    public void setTimeCreated(LocalDateTime timeCreated) {
+    public void setTimeCreated(Date timeCreated) {
         this.timeCreated = timeCreated;
     }
 

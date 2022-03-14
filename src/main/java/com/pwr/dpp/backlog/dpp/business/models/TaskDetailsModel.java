@@ -8,7 +8,7 @@ import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,7 +27,7 @@ public class TaskDetailsModel implements Observable {
     }
 
     public List<String> getUsers(){
-        return databaseHandler.getAllUsers();
+        return databaseHandler.getUsers();
     }
 
     public void assignUser(String username){
@@ -54,8 +54,8 @@ public class TaskDetailsModel implements Observable {
     }
 
     public String getTimeCreated(){
-        return task.getTimeCreated()
-                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return dateFormat.format(task.getTimeCreated());
     }
 
     public Category getStatus(){
@@ -99,7 +99,7 @@ public class TaskDetailsModel implements Observable {
 
     public List<Comment> getComments(){
         if(invalidatedComments){
-            comments = databaseHandler.getAllComments()
+            comments = databaseHandler.getComments()
                     .stream()
                     .filter(comment -> comment.getTask() == task)
                     .sorted()

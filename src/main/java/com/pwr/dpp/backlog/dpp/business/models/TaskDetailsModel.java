@@ -1,5 +1,7 @@
-package com.pwr.dpp.backlog.dpp.business;
+package com.pwr.dpp.backlog.dpp.business.models;
 
+import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
+import com.pwr.dpp.backlog.dpp.business.LoggedUserRepository;
 import com.pwr.dpp.backlog.dpp.business.orm.Category;
 import com.pwr.dpp.backlog.dpp.business.orm.Comment;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
@@ -19,6 +21,10 @@ public class TaskDetailsModel implements Observable {
     private boolean invalidatedComments = true;
 
     private List<Comment> comments;
+
+    public TaskDetailsModel(Task task) {
+        this.task = task;
+    }
 
     public List<String> getUsers(){
         return databaseHandler.getAllUsers();

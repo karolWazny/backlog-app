@@ -1,4 +1,8 @@
-package com.pwr.dpp.backlog.dpp.business;
+package com.pwr.dpp.backlog.dpp.business.models;
+
+import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
+import com.pwr.dpp.backlog.dpp.business.LoggedUserRepository;
+import com.pwr.dpp.backlog.dpp.business.NoSuchUserException;
 
 public class LogInModel {
     private DatabaseHandler databaseHandler;

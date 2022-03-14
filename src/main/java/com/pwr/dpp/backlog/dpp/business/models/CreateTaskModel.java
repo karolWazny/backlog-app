@@ -1,4 +1,6 @@
-package com.pwr.dpp.backlog.dpp.business;
+package com.pwr.dpp.backlog.dpp.business.models;
+
+import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
 
 import java.util.List;
 

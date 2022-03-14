@@ -1,5 +1,7 @@
-package com.pwr.dpp.backlog.dpp.business;
+package com.pwr.dpp.backlog.dpp.business.models;
 
+import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
+import com.pwr.dpp.backlog.dpp.business.LoggedUserRepository;
 import com.pwr.dpp.backlog.dpp.business.orm.Category;
 import com.pwr.dpp.backlog.dpp.business.orm.Comment;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
@@ -17,7 +19,6 @@ public class BoardModel implements Observable {
     private final List<Comment> comments;
     private final DatabaseHandler databaseHandler;
     private final List<InvalidationListener> listeners = new LinkedList<>();
-    private LoggedUserRepository loggedUserRepository;
 
     public BoardModel(DatabaseHandler handler){
         this.databaseHandler = handler;
@@ -103,6 +104,10 @@ public class BoardModel implements Observable {
         return comments.stream().filter(comment -> comment.getId().equals(taskId));
     }
 
+    private Integer countCommentsUnderTask (Integer taskId) {
+        return listCommentsUnderTask(taskId).size();
+    }
+
     private List<Comment> listCommentsUnderUser(String user) {
         return commentUnderUser(user).collect(Collectors.toList());
     }
@@ -135,9 +140,5 @@ public class BoardModel implements Observable {
              listeners) {
             listener.invalidated(this);
         }
-    }
-
-    public void setLoggedUserRepository(LoggedUserRepository loggedUserRepository) {
-        this.loggedUserRepository = loggedUserRepository;
     }
 }

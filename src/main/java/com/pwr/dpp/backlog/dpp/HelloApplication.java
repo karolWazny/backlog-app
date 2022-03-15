@@ -1,6 +1,7 @@
 package com.pwr.dpp.backlog.dpp;
 
 import com.pwr.dpp.backlog.dpp.business.JsonDatabaseHandler;
+import com.pwr.dpp.backlog.dpp.business.ApplicationSetup;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,9 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("LoginScene.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
+        Parent root = fxmlLoader.load();
+        SceneController.setMainController(ApplicationSetup.setup());
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

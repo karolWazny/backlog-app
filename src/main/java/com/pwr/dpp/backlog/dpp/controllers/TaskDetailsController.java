@@ -77,6 +77,12 @@ public class TaskDetailsController {
                     taskDescriptionTextArea.setText(newContent + "\n");
                     taskDescriptionTextArea.end();
                 }
+            } else if(event.getCode() == KeyCode.ESCAPE) {
+                taskDescriptionTextArea.managedProperty().set(false);
+                taskDescriptionTextArea.visibleProperty().set(false);
+                descriptionLabel.setText(task.getDescription());
+                descriptionLabel.managedProperty().set(true);
+                descriptionLabel.visibleProperty().set(true);
             }
         });
     }

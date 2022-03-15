@@ -13,7 +13,6 @@ module com.pwr.dpp.backlog.dpp {
     requires com.fasterxml.jackson.datatype.jsr310;
     requires com.fasterxml.jackson.databind;
 
-    opens com.pwr.dpp.backlog.dpp to javafx.fxml;
     exports com.pwr.dpp.backlog.dpp.business.orm to com.fasterxml.jackson.databind;
     exports com.pwr.dpp.backlog.dpp;
     exports com.pwr.dpp.backlog.dpp.business;

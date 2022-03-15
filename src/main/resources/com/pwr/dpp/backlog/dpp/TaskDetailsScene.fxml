@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.BacklogControllers.BoardController">
+<AnchorPane maxHeight="768.0" maxWidth="1024.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" scaleShape="false" style="-fx-background-color: #3E4345;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pwr.dpp.backlog.dpp.controllers.TaskDetailsController">
     <children>
         <ScrollPane layoutY="58.0" prefHeight="709.0" prefWidth="1024.0" style="-fx-background-color: transparent; -fx-background: transparent;">
             <content>
                 <VBox layoutX="42.0" prefHeight="200.0" prefWidth="1022.0">
                     <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="&lt; Go back to team board" textFill="WHITE">
+                        <Button fx:id="goToBoardButton" mnemonicParsing="false" style="-fx-background-color: transparent;" text="&lt; Go back to team board" textFill="WHITE">
                             <font>
                                 <Font name="Segoe UI" size="14.0" />
                             </font>
@@ -22,14 +28,14 @@
                             <children>
                                 <AnchorPane>
                                     <children>
-                                        <Label prefHeight="32.0" prefWidth="830.0" text="[TASK_TITLE]">
+                                        <Label fx:id="taskTitleLabel" prefHeight="32.0" prefWidth="830.0" text="[TASK_TITLE]">
                                             <font>
                                                 <Font name="Segoe UI Bold" size="25.0" />
                                             </font>
                                         </Label>
                                         <Button layoutX="848.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                                             <graphic>
-                                                <ImageView fitHeight="10.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="taskOptionButton" fitHeight="10.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                                     <image>
                                                         <Image url="@icons/icon-menu.png" />
                                                     </image>
@@ -50,7 +56,7 @@
                                                 <Font name="Segoe UI Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
+                                        <Label fx:id="createdOnLabel" layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font>
@@ -67,7 +73,7 @@
                                                 <Font name="Segoe UI Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="144.0" maxWidth="700.0" text="[ASSIGNED_USER]">
+                                        <Label fx:id="assignedUserLabel" layoutX="144.0" maxWidth="700.0" text="[ASSIGNED_USER]">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font>
@@ -89,7 +95,7 @@
                                                 <Font name="Segoe UI Bold" size="14.0" />
                                             </font>
                                         </Label>
-                                        <Label layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
+                                        <Label fx:id="statusLabel" layoutX="120.0" maxWidth="700.0" text="[CREATED_ON_DATE]">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font>
@@ -99,7 +105,7 @@
                                         <Insets bottom="15.0" />
                                     </padding>
                                 </AnchorPane>
-                                <Label maxWidth="884.0" text="[TASK_DESCRIPTION]" wrapText="true">
+                                <Label fx:id="descriptionLabel" maxWidth="884.0" text="[TASK_DESCRIPTION]" wrapText="true">
                                     <VBox.margin>
                                         <Insets bottom="10.0" />
                                     </VBox.margin>
@@ -119,7 +125,7 @@
                                     <VBox.margin>
                                         <Insets bottom="10.0" />
                                     </VBox.margin></Label>
-                                <ListView prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+                                <ListView fx:id="commentsListView" prefHeight="0.0" prefWidth="888.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                                     <VBox.margin>
                                         <Insets right="10.0" />
                                     </VBox.margin>
@@ -135,12 +141,12 @@
                                                 <Image url="@icons/icon-user.png" />
                                             </image>
                                         </ImageView>
-                                        <TextArea layoutX="62.0" prefHeight="70.0" prefWidth="826.0" promptText="Write a comment here..." style="-fx-text-fill: white; -fx-border-size: 0 0 0 0;" stylesheets="@styles/stylesheet.css">
+                                        <TextArea fx:id="commentTextArea" layoutX="62.0" prefHeight="70.0" prefWidth="826.0" promptText="Write a comment here..." style="-fx-text-fill: white; -fx-border-size: 0 0 0 0;" stylesheets="@styles/stylesheet.css">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font>
                                         </TextArea>
-                                        <Button layoutX="779.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #74C249; -fx-text-fill: white;" text="Add comment">
+                                        <Button fx:id="addCommentButton" layoutX="779.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #74C249; -fx-text-fill: white;" text="Add comment">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font></Button>

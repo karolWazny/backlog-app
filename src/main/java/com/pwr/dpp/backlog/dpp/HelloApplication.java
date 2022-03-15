@@ -26,19 +26,15 @@ public class HelloApplication extends Application {
         SceneController.setMainController(mainController);
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        //saving database on close request
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            @Override
-            public void handle(WindowEvent windowEvent) {
+        stage.setOnCloseRequest((WindowEvent windowEvent) -> {
                 System.out.println("Saving changes.");
                 mainController.getDatabaseHandler().save();
             }
-        });
+        );
         stage.show();
     }
 
     public static void main(String[] args) {
-        JsonDatabaseHandler dh = new JsonDatabaseHandler(System.getProperty("user.dir") + File.separator + "jsonDatabase", "tasks", "comments", "users");
         launch();
     }
 }

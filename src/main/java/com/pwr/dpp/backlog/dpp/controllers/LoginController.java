@@ -4,10 +4,15 @@ import com.pwr.dpp.backlog.dpp.SceneController;
 import com.pwr.dpp.backlog.dpp.business.ApplicationSetup;
 import com.pwr.dpp.backlog.dpp.business.MainController;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import java.security.Key;
 
 public class LoginController {
     private MainController mainController;
@@ -30,7 +35,16 @@ public class LoginController {
     }
 
     @FXML
-    public void signIn(ActionEvent event) throws Exception {
+    public void initialize(){
+        usernameField.setOnKeyPressed((KeyEvent event)->{
+            if(event.getCode() == KeyCode.ENTER){
+                signIn(event);
+            }
+        });
+    }
+
+    @FXML
+    public void signIn(Event event) {
         String username = this.getUsername();
         System.out.println("username: ");
         System.out.println(username);

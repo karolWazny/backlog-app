@@ -11,14 +11,17 @@ import javafx.stage.Stage;
 
 public class LoginController {
     private MainController mainController;
-    private SceneController sceneController;
 
     @FXML
     private TextField usernameField;
 
     public LoginController() {
-        this.mainController = ApplicationSetup.setup();
-        this.sceneController = new SceneController();
+        if(SceneController.getMainController()!=null) {
+            this.mainController = SceneController.getMainController();
+        }else{
+            this.mainController = ApplicationSetup.setup();
+            SceneController.setMainController(this.mainController);
+        }
         usernameField = new TextField();
     }
 
@@ -36,7 +39,7 @@ public class LoginController {
             boolean loginResult = this.mainController.getLogInModel().logAs(username);
             if (loginResult) {
                 Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                this.sceneController.switchToBoardScene(stage);
+                SceneController.switchToBoardScene(stage);
             } else {
                 throw new RuntimeException("Could not log in");
             }

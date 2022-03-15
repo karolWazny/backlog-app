@@ -30,6 +30,7 @@ public class HelloApplication extends Application {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
+                System.out.println("Saving changes.");
                 mainController.getDatabaseHandler().save();
             }
         });
@@ -38,7 +39,6 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         JsonDatabaseHandler dh = new JsonDatabaseHandler(System.getProperty("user.dir") + File.separator + "jsonDatabase", "tasks", "comments", "users");
-        dh.saveDefaultDataBase();
         launch();
     }
 }

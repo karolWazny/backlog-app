@@ -25,9 +25,8 @@ import java.util.List;
 
 public class TaskDetailsController {
     private MainController mainController;
-    private SceneController sceneController;
-
     private TaskDetailsModel task;
+
     @FXML
     public Label taskTitleLabel;
     @FXML
@@ -51,8 +50,12 @@ public class TaskDetailsController {
 
 
     public TaskDetailsController() {
-        this.mainController = ApplicationSetup.setup();
-        this.sceneController = new SceneController();
+        if(SceneController.getMainController()!=null) {
+            this.mainController = SceneController.getMainController();
+        }else{
+            this.mainController = ApplicationSetup.setup();
+            SceneController.setMainController(this.mainController);
+        }
     }
     @FXML
     public void initialize(){

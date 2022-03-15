@@ -25,7 +25,7 @@
     -fx-background-color: transparent;
 }
 
-.text-area .content {
+.text-area.content {
     -fx-background-color: text-area-background;
     -fx-background-radius: 5;
 }
@@ -43,7 +43,7 @@
 .scroll-bar{
     -fx-background-color: transparent;
 }
-.combo-box .content {
+.combo-box.content {
     -fx-background-color: text-area-background;
     -fx-background-radius: 5;
 

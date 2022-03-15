@@ -11,10 +11,12 @@ public class NewTaskController {
     private MainController mainController;
 
     public NewTaskController(){
-        if(SceneController.getMainController() == null){
-            SceneController.setMainController(ApplicationSetup.setup());
+        if(SceneController.getMainController()!=null) {
+            this.mainController = SceneController.getMainController();
+        }else{
+            this.mainController = ApplicationSetup.setup();
+            SceneController.setMainController(this.mainController);
         }
-        this.mainController = SceneController.getMainController();
     }
 
     public void goBack(ActionEvent event) {

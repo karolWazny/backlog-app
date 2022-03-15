@@ -21,7 +21,6 @@ import java.util.List;
 
 public class BoardController {
     private MainController mainController;
-    private SceneController sceneController;
 
     private ObservableList<Task> openTasks;
     private ObservableList<Task> toDoTasks;
@@ -37,10 +36,18 @@ public class BoardController {
     @FXML
     private ListView<Task> closedTasksList;
 
+    public BoardController(){
+        if(SceneController.getMainController()!=null) {
+            this.mainController = SceneController.getMainController();
+        }else{
+            this.mainController = ApplicationSetup.setup();
+            SceneController.setMainController(this.mainController);
+        }
+    }
+
     @FXML
     public void initialize() {
         this.mainController = ApplicationSetup.setup();
-        this.sceneController = new SceneController();
 
         assert openTasksList != null;
         assert toDoTasksList != null;

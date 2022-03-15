@@ -12,6 +12,7 @@ public class TaskBoradCell extends ListCell<Task> {
     private VBox taskBox = new VBox();
 
     public TaskBoradCell() {
+
         taskBox.setMinWidth(204.0);
         taskBox.setPrefWidth(204.0);
         taskBox.setMaxWidth(204.0);

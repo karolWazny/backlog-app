@@ -14,6 +14,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -61,6 +63,28 @@ public class TaskDetailsController {
     public void initialize(){
         taskDescriptionTextArea.managedProperty().set(false);
         taskDescriptionTextArea.visibleProperty().set(false);
+        taskDescriptionTextArea.setOnKeyPressed((KeyEvent event)->{
+            if(event.getCode() == KeyCode.ENTER){
+                String newContent = taskDescriptionTextArea.getText();
+                if(!event.isShiftDown()){
+                    task.setDescription(newContent);
+                    taskDescriptionTextArea.managedProperty().set(false);
+                    taskDescriptionTextArea.visibleProperty().set(false);
+                    descriptionLabel.setText(task.getDescription());
+                    descriptionLabel.managedProperty().set(true);
+                    descriptionLabel.visibleProperty().set(true);
+                } else {
+                    taskDescriptionTextArea.setText(newContent + "\n");
+                    taskDescriptionTextArea.end();
+                }
+            } else if(event.getCode() == KeyCode.ESCAPE) {
+                taskDescriptionTextArea.managedProperty().set(false);
+                taskDescriptionTextArea.visibleProperty().set(false);
+                descriptionLabel.setText(task.getDescription());
+                descriptionLabel.managedProperty().set(true);
+                descriptionLabel.visibleProperty().set(true);
+            }
+        });
     }
 
     public void loadTask() {

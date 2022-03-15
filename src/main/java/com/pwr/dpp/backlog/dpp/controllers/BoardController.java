@@ -25,7 +25,7 @@ public class BoardController {
 
     @FXML
     public void onShowTestTask(ActionEvent event){
-        Task t = mainController.getBoardModel().getClosed().get(0);
+        Task t = mainController.getBoardModel().getClosed().get(1);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         try {
             SceneController.switchToTaskDetailsScene(stage, t);

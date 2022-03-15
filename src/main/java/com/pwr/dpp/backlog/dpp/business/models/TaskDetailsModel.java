@@ -99,11 +99,7 @@ public class TaskDetailsModel implements Observable {
 
     public List<Comment> getComments(){
         if(invalidatedComments){
-            comments = databaseHandler.getComments()
-                    .stream()
-                    .filter(comment -> comment.getTask() == task)
-                    .sorted()
-                    .collect(Collectors.toList());
+            comments = databaseHandler.getCommentsForTask(task.getId());
             invalidatedComments = false;
         }
         return comments;
@@ -140,5 +136,9 @@ public class TaskDetailsModel implements Observable {
 
     public void setTask(Task task) {
         this.task = task;
+    }
+
+    public Task getTask() {
+        return task;
     }
 }

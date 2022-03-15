@@ -66,10 +66,17 @@ public class TaskDetailsController {
         taskDescriptionTextArea.setOnKeyPressed((KeyEvent event)->{
             if(event.getCode() == KeyCode.ENTER){
                 String newContent = taskDescriptionTextArea.getText();
-                task.setDescription(newContent);
-                taskDescriptionTextArea.managedProperty().set(false);
-                taskDescriptionTextArea.visibleProperty().set(false);
-                descriptionLabel.setText(task.getDescription());
+                if(!event.isShiftDown()){
+                    task.setDescription(newContent);
+                    taskDescriptionTextArea.managedProperty().set(false);
+                    taskDescriptionTextArea.visibleProperty().set(false);
+                    descriptionLabel.setText(task.getDescription());
+                    descriptionLabel.managedProperty().set(true);
+                    descriptionLabel.visibleProperty().set(true);
+                } else {
+                    taskDescriptionTextArea.setText(newContent + "\n");
+                    taskDescriptionTextArea.end();
+                }
             }
         });
     }

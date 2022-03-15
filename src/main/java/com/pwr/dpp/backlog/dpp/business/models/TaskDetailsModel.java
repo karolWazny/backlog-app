@@ -49,6 +49,17 @@ public class TaskDetailsModel implements Observable {
         return task.getDescription();
     }
 
+    public void setDescription(String description){
+        String currentDescription = task.getDescription();
+        task.setDescription(description);
+        try{
+            databaseHandler.saveTask(task);
+            invalidate();
+        } catch (Exception e){
+            task.setDescription(currentDescription);
+        }
+    }
+
     public String getTaskTitle(){
         return task.getName();
     }

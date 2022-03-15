@@ -25,6 +25,7 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
                 } else {
                     // Background color change not working
                     setStyle("-fx-control-inner-background: #5E6366");
+                    setStyle("-fx-background: #5E6366");
                     setStyle("-fx-background-radius: 10");
                     setGraphic(getTaskCell(task));
                     setText(null);
@@ -36,6 +37,7 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
         VBox taskPane = new VBox();
         // Background color change not working
         taskPane.setStyle("-fx-background-color: #5E6366");
+        taskPane.setStyle("-fx-background: #5E6366");
         taskPane.setStyle("-fx-background-radius: 10");
 
         Label taskName = new Label();
@@ -43,6 +45,9 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
 
         taskName.setText("Task: " + task.getName());
         taskAssignedUser.setText("User: " + task.getUser());
+
+        taskName.setStyle("-fx-text-fill: white");
+        taskAssignedUser.setStyle("-fx-text-fill: white");
 
         taskPane.getChildren().add(taskName);
         taskPane.getChildren().add(taskAssignedUser);

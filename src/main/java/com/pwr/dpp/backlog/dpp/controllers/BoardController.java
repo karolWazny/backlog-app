@@ -6,6 +6,7 @@ import com.pwr.dpp.backlog.dpp.business.MainController;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -68,7 +69,7 @@ public class BoardController {
             public void handle(MouseEvent mouseEvent) {
                 try {
                     Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-                    Task selectedTask = openTasksList.getSelectionModel().getSelectedItem();
+                    Task selectedTask = getSelectedItem();
                     System.out.println(selectedTask);
                     if (selectedTask != null) {
                         SceneController.switchToTaskDetailsScene(stage, selectedTask);
@@ -85,7 +86,7 @@ public class BoardController {
     public void handleMouseClick(MouseEvent arg0) {
         try {
             Stage stage = (Stage) ((Node) arg0.getSource()).getScene().getWindow();
-            Task selectedTask = openTasksList.getSelectionModel().getSelectedItem();
+            Task selectedTask = getSelectedItem();
             System.out.println(selectedTask);
             if (selectedTask != null) {
                 SceneController.switchToTaskDetailsScene(stage, selectedTask);
@@ -94,5 +95,34 @@ public class BoardController {
             System.out.println("1Error when selecting task");
             System.out.println(e);
         }
+    }
+
+    public void goToNewTaskView(ActionEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            SceneController.switchToNewTaskScene(stage);
+        } catch (Exception e) {
+            System.out.println("An error occurred when trying to go back to the board.");
+        }
+    }
+
+    private Task getSelectedItem() {
+        Task openTask = openTasksList.getSelectionModel().getSelectedItem();
+        if (openTask != null) {
+            return openTask;
+        }
+        Task toDoTask = toDoTasksList.getSelectionModel().getSelectedItem();
+        if (toDoTask != null) {
+            return toDoTask;
+        }
+        Task inProgressTask = inProgressTasksList.getSelectionModel().getSelectedItem();
+        if (inProgressTask != null) {
+            return inProgressTask;
+        }
+        Task closedTask = closedTasksList.getSelectionModel().getSelectedItem();
+        if (closedTask != null) {
+            return closedTask;
+        }
+        return null;
     }
 }

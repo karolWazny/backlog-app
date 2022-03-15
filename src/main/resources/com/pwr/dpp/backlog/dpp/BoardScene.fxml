@@ -113,7 +113,7 @@
                 </SplitPane>
             </children>
         </GridPane>
-        <Button layoutX="894.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #74C249;" text="+ Add task" textFill="WHITE">
+        <Button onAction="#goToNewTaskView" layoutX="894.0" layoutY="58.0" mnemonicParsing="false" style="-fx-background-color: #74C249;" text="+ Add task" textFill="WHITE">
             <font>
                 <Font size="14.0" />
             </font>

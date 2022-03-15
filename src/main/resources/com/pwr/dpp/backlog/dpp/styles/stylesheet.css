@@ -28,5 +28,9 @@
 .text-area .content {
     -fx-background-color: text-area-background;
     -fx-background-radius: 5;
+}
 
+.combo-box .content {
+    -fx-background-color: text-area-background;
+    -fx-background-radius: 5;
 }

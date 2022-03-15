@@ -20,7 +20,7 @@
 }
 
 .text-area {
-    text-area-background: #1A1C1C;
+    -text-area-background: #1A1C1C;
     -fx-background: transparent;
     -fx-background-color: transparent;
 }
@@ -30,7 +30,21 @@
     -fx-background-radius: 5;
 }
 
+.list-cell {
+    -fx-padding: 3 3 3 3;
+    -fx-background-color: transparent;
+    -fx-text-fill: #eeeeee;
+}
+
+.list-cell:selected {
+    -fx-background-color: #5a5a5a;
+}
+
+.scroll-bar{
+    -fx-background-color: transparent;
+}
 .combo-box .content {
     -fx-background-color: text-area-background;
     -fx-background-radius: 5;
+
 }

@@ -50,8 +50,9 @@ public class SceneController {
         s.setTitle("Backlogger - Task");
     }
 
-    public static void switchToNewTaskScene(ActionEvent event) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public static void switchToNewTaskScene(Stage s) throws Exception {
+        switchScene(s, "NewTaskScene.fxml");
+        s.setTitle("Backlogger - New task");
     }
     public static void setMainController(MainController mainController1){
         mainController = mainController1;

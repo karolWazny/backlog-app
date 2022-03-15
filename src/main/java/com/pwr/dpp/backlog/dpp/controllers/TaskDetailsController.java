@@ -25,6 +25,8 @@ import java.util.List;
 
 public class TaskDetailsController {
     private MainController mainController;
+    private SceneController sceneController;
+
     private TaskDetailsModel task;
     @FXML
     public Label taskTitleLabel;
@@ -49,10 +51,8 @@ public class TaskDetailsController {
 
 
     public TaskDetailsController() {
-        if (SceneController.getMainController() == null) {
-            SceneController.setMainController(ApplicationSetup.setup());
-        }
-        this.mainController = SceneController.getMainController();
+        this.mainController = ApplicationSetup.setup();
+        this.sceneController = new SceneController();
     }
     @FXML
     public void initialize(){
@@ -147,4 +147,12 @@ public class TaskDetailsController {
         loadTask();
     }
 
+    public void goBack(ActionEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            SceneController.switchToBoardScene(stage);
+        } catch (Exception e) {
+            System.out.println("Error when going back to board.");
+        }
+    }
 }

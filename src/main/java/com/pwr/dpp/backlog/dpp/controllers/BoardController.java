@@ -6,11 +6,15 @@ import com.pwr.dpp.backlog.dpp.business.MainController;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -58,5 +62,37 @@ public class BoardController {
         this.toDoTasksList.setCellFactory(cellFactory);
         this.inProgressTasksList.setCellFactory(cellFactory);
         this.closedTasksList.setCellFactory(cellFactory);
+
+        this.openTasksList.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                try {
+                    Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+                    Task selectedTask = openTasksList.getSelectionModel().getSelectedItem();
+                    System.out.println(selectedTask);
+                    if (selectedTask != null) {
+                        SceneController.switchToTaskDetailsScene(stage, selectedTask);
+                    }
+                } catch (Exception e) {
+                    System.out.println("2Error when selecting task");
+                    System.out.println(e);
+                }
+            }
+        });
+    }
+
+    @FXML
+    public void handleMouseClick(MouseEvent arg0) {
+        try {
+            Stage stage = (Stage) ((Node) arg0.getSource()).getScene().getWindow();
+            Task selectedTask = openTasksList.getSelectionModel().getSelectedItem();
+            System.out.println(selectedTask);
+            if (selectedTask != null) {
+                SceneController.switchToTaskDetailsScene(stage, selectedTask);
+            }
+        } catch (Exception e) {
+            System.out.println("1Error when selecting task");
+            System.out.println(e);
+        }
     }
 }

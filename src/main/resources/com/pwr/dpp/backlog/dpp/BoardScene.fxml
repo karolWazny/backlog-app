@@ -50,7 +50,7 @@
                             </children></AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
                      <content>
-                        <ListView fx:id="openTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                        <ListView fx:id="openTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" onMouseClicked="#handleMouseClick" />
                      </content></ScrollPane>
                     </items>
                 </SplitPane>
@@ -68,7 +68,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
                             <content>
-                                <ListView fx:id="toDoTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                                <ListView fx:id="toDoTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" onMouseClicked="#handleMouseClick" />
                             </content>
                         </ScrollPane>
                     </items>
@@ -87,7 +87,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
                             <content>
-                                <ListView fx:id="inProgressTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                                <ListView fx:id="inProgressTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" onMouseClicked="#handleMouseClick" />
                             </content>
                         </ScrollPane>
                     </items>
@@ -106,7 +106,7 @@
                         </AnchorPane>
                         <ScrollPane hbarPolicy="NEVER" maxHeight="586.0" maxWidth="224.0" minHeight="586.0" minWidth="224.0" prefHeight="586.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;">
                             <content>
-                                <ListView fx:id="closedTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" />
+                                <ListView fx:id="closedTasksList" prefHeight="585.0" prefWidth="224.0" style="-fx-background-color: #2A2E2F;" onMouseClicked="#handleMouseClick" />
                             </content>
                         </ScrollPane>
                     </items>

@@ -7,15 +7,20 @@ import com.pwr.dpp.backlog.dpp.business.models.TaskDetailsModel;
 import com.pwr.dpp.backlog.dpp.business.orm.Comment;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.stage.Stage;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public class TaskDetailsController {
     private MainController mainController;
+    private SceneController sceneController;
+
     private TaskDetailsModel task;
     @FXML
     public Label taskTitleLabel;
@@ -31,10 +36,8 @@ public class TaskDetailsController {
     public ListView<String> commentsListView;
 
     public TaskDetailsController() {
-        if (SceneController.getMainController() == null) {
-            SceneController.setMainController(ApplicationSetup.setup());
-        }
-        this.mainController = SceneController.getMainController();
+        this.mainController = ApplicationSetup.setup();
+        this.sceneController = new SceneController();
     }
 
     public void loadTask() {
@@ -64,4 +67,12 @@ public class TaskDetailsController {
         loadTask();
     }
 
+    public void goBack(ActionEvent event) {
+        try {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            SceneController.switchToBoardScene(stage);
+        } catch (Exception e) {
+            System.out.println("Error when going back to board.");
+        }
+    }
 }

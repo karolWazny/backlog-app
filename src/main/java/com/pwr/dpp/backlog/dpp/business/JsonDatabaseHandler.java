@@ -43,30 +43,7 @@ public class JsonDatabaseHandler implements DatabaseHandler {
         load();
     }
 
-
-    //TODO: remove this example main from JsonDatabaseHandler
-    public static void main(String[] args) {
-        JsonDatabaseHandler dh = new JsonDatabaseHandler(System.getProperty("user.dir") + File.separator + "jsonDatabase", "tasks", "comments", "users");
-        dh.saveDefaultDataBase();
-//        List<Task> t = dh.getTasks();
-//        dh.saveTask(new Task(2, "changed", "chaanged", new Date(System.currentTimeMillis()), "someuser", Category.CLOSED));
-//        dh.saveTask(new Task(100, "changed2", "chaanged2", new Date(System.currentTimeMillis()), "someuser", Category.CLOSED));
-//        dh.deleteTask(new Task(0, "changed", "chaanged", new Date(System.currentTimeMillis()), "someuser", Category.CLOSED));
-//        dh.deleteTask(new Task(101, "changed", "chaanged", new Date(System.currentTimeMillis()), "someuser", Category.CLOSED));
-//        List<Comment> cft = dh.getCommentsForTask(2);
-//        List<Comment> c = dh.getComments();
-//        List<String> u = dh.getUsers();
-//        dh.saveComment(new Comment(1, t.get(0), new Date(System.currentTimeMillis()), "somecontent", "someauthorr"));
-//        dh.saveComment(new Comment(100, t.get(0), new Date(System.currentTimeMillis()), "somecontent", "someauthorr"));
-//        boolean a = dh.createUser("author5");
-//        a = dh.createUser("authorxdddd");
-//        a = dh.logAs("author5");
-//        a = dh.logAs("author54");
-//        dh.save();
-
-    }
-
-    private void saveDefaultDataBase() {
+    public void saveDefaultDataBase() {
         Random random = new Random(System.currentTimeMillis());
         Category[] categories = new Category[]{Category.DOING, Category.CLOSED, Category.OPEN, Category.TODO};
         JsonDatabaseHandler dh = new JsonDatabaseHandler(System.getProperty("user.dir") + File.separator + "jsonDatabase", "tasks", "comments", "users");
@@ -331,7 +308,9 @@ public class JsonDatabaseHandler implements DatabaseHandler {
     @Override
     public boolean logAs(String username) {
         for (String user : users) {
-            if (user.equalsIgnoreCase(username)) {
+            System.out.println(user);
+            System.out.println(username);
+            if (user.equals(username)) {
                 return true;
             }
         }

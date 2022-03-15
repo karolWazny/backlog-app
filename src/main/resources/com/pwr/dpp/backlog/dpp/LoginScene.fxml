@@ -22,7 +22,7 @@
       </Label>
 
       <!-- Username field -->
-      <TextField id="usernameField" layoutX="227.0" layoutY="355.0" maxHeight="56.0" maxWidth="570.0" minHeight="56.0" minWidth="570.0" prefHeight="56.0" prefWidth="570.0" promptText="Username..." style="-fx-background-color: #2A2E2F; -fx-border-style: solid; -fx-border-width: 0 0 5 0; -fx-border-color: #4B5052; -fx-text-fill: white;">
+      <TextField fx:id="usernameField" layoutX="227.0" layoutY="355.0" maxHeight="56.0" maxWidth="570.0" minHeight="56.0" minWidth="570.0" prefHeight="56.0" prefWidth="570.0" promptText="Username..." style="-fx-background-color: #2A2E2F; -fx-border-style: solid; -fx-border-width: 0 0 5 0; -fx-border-color: #4B5052; -fx-text-fill: white;">
          <font>
             <Font name="Segoe UI" size="20.0" />
          </font>

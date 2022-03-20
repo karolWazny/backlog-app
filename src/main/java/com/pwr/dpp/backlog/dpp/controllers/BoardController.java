@@ -3,6 +3,7 @@ package com.pwr.dpp.backlog.dpp.controllers;
 import com.pwr.dpp.backlog.dpp.SceneController;
 import com.pwr.dpp.backlog.dpp.business.ApplicationSetup;
 import com.pwr.dpp.backlog.dpp.business.MainController;
+import com.pwr.dpp.backlog.dpp.business.models.BoardModel;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,6 +22,7 @@ import java.util.List;
 
 public class BoardController {
     private MainController mainController;
+    private BoardModel model;
 
     private ObservableList<Task> openTasks;
     private ObservableList<Task> toDoTasks;
@@ -43,33 +45,12 @@ public class BoardController {
             this.mainController = ApplicationSetup.setup();
             SceneController.setMainController(this.mainController);
         }
+        this.model = mainController.getBoardModel();
     }
 
     @FXML
     public void initialize() {
-        this.mainController = ApplicationSetup.setup();
-
-        assert openTasksList != null;
-        assert toDoTasksList != null;
-        assert inProgressTasksList != null;
-        assert closedTasksList != null;
-
-        this.openTasks = FXCollections.observableArrayList(mainController.getBoardModel().getOpen());
-        this.toDoTasks = FXCollections.observableArrayList(mainController.getBoardModel().getToDo());
-        this.inProgressTasks = FXCollections.observableArrayList(mainController.getBoardModel().getDoing());
-        this.closedTasks = FXCollections.observableArrayList(mainController.getBoardModel().getClosed());
-
-        this.openTasksList.setItems(this.openTasks);
-        this.toDoTasksList.setItems(this.toDoTasks);
-        this.inProgressTasksList.setItems(this.inProgressTasks);
-        this.closedTasksList.setItems(this.closedTasks);
-
-        TaskCellFactory cellFactory = new TaskCellFactory();
-
-        this.openTasksList.setCellFactory(cellFactory);
-        this.toDoTasksList.setCellFactory(cellFactory);
-        this.inProgressTasksList.setCellFactory(cellFactory);
-        this.closedTasksList.setCellFactory(cellFactory);
+        initializeListViews();
 
         this.openTasksList.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -87,6 +68,44 @@ public class BoardController {
                 }
             }
         });
+    }
+
+    private void initializeListViews(){
+        assertFieldsNotNull();
+
+        createObservableArrays();
+        setItemsInListViews();
+        setCellFactoryInListViews();
+    }
+
+    private void setItemsInListViews(){
+        this.openTasksList.setItems(this.openTasks);
+        this.toDoTasksList.setItems(this.toDoTasks);
+        this.inProgressTasksList.setItems(this.inProgressTasks);
+        this.closedTasksList.setItems(this.closedTasks);
+    }
+
+    private void createObservableArrays(){
+        this.openTasks = FXCollections.observableArrayList(model.getOpen());
+        this.toDoTasks = FXCollections.observableArrayList(model.getToDo());
+        this.inProgressTasks = FXCollections.observableArrayList(model.getDoing());
+        this.closedTasks = FXCollections.observableArrayList(model.getClosed());
+    }
+
+    private void assertFieldsNotNull(){
+        assert openTasksList != null;
+        assert toDoTasksList != null;
+        assert inProgressTasksList != null;
+        assert closedTasksList != null;
+    }
+
+    private void setCellFactoryInListViews(){
+        TaskCellFactory cellFactory = new TaskCellFactory();
+
+        this.openTasksList.setCellFactory(cellFactory);
+        this.toDoTasksList.setCellFactory(cellFactory);
+        this.inProgressTasksList.setCellFactory(cellFactory);
+        this.closedTasksList.setCellFactory(cellFactory);
     }
 
     @FXML

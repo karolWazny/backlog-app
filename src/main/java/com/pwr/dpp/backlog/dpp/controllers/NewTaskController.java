@@ -45,7 +45,7 @@ public class NewTaskController {
         CreateTaskModel model = mainController.getCreateTaskModel();
         CreateTaskInfo info = new CreateTaskInfo();
         info.setTitle(titleField.getText());
-        info.setDescription(titleField.getText());
+        info.setDescription(descriptionField.getText());
         info.setCategory(Category.OPEN);
         info.setUsername("unassigned");
         model.createTask(info);

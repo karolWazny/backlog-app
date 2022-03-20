@@ -20,10 +20,10 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
-        Parent root = fxmlLoader.load();
         MainController mainController = ApplicationSetup.setup();
         SceneController.setMainController(mainController);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
+        Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setOnCloseRequest((WindowEvent windowEvent) -> {

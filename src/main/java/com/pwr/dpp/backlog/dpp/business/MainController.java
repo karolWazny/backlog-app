@@ -13,31 +13,31 @@ public class MainController {
     private final LogInModel logInModel = new LogInModel();
     private final CreateTaskModel createTaskModel = new CreateTaskModel();
 
-    public BoardModel boardModel(){
+    public BoardModel getBoardModel(){
         return boardModel;
     }
 
-    public LogInModel logInModel(){
+    public LogInModel getLogInModel(){
         logInModel.setLoggedUserRepository(loggedUserRepository);
         return logInModel;
     }
 
-    public CreateTaskModel createTaskModel(){
+    public CreateTaskModel getCreateTaskModel(){
         return createTaskModel;
     }
 
-    public LoggedUserRepository loggedUserRepository(){
+    public LoggedUserRepository getLoggedUserRepository(){
         return loggedUserRepository;
     }
 
-    public TaskDetailsModel taskDetailsModel(Task task){
+    public TaskDetailsModel getTaskDetailsModel(Task task){
         TaskDetailsModel taskDetailsModel = new TaskDetailsModel(task);
         taskDetailsModel.setDatabaseHandler(databaseHandler);
         taskDetailsModel.setLoggedUserRepository(loggedUserRepository);
         return taskDetailsModel;
     }
 
-    public DatabaseHandler databaseHandler(){
+    public DatabaseHandler getDatabaseHandler(){
         return databaseHandler;
     }
 

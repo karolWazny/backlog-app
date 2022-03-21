@@ -6,13 +6,16 @@ import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import java.util.List;
 
 public interface DatabaseHandler {
-    List<Task> getAllTasks();
-    List<Comment> getAllComments();
-    List<Comment> getCommentsForTask(Integer taskId);
-    List<String> getAllUsers();
-    boolean createUser(String username);
+    List<Task> getTasks();
     void saveTask(Task task);
     void deleteTask(Task task);
-    boolean logAs(String username) throws NoSuchUserException;
+    List<Comment> getCommentsForTask(Integer taskId);
+    List<Comment> getComments();
     void saveComment(Comment comment);
+    List<String> getUsers();
+    boolean createUser(String username);
+    boolean logAs(String username);
+    void save();
+    void load();
+
 }

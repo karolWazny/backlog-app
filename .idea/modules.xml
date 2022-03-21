@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/lab02-backlog.iml" filepath="$PROJECT_DIR$/.idea/lab02-backlog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dpp.iml" filepath="$PROJECT_DIR$/dpp.iml" />
     </modules>
   </component>
 </project>

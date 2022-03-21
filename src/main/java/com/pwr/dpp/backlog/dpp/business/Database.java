@@ -1,4 +1,4 @@
-package com.pwr.dpp.backlog.dpp.business.orm;
+package com.pwr.dpp.backlog.dpp.business;
 
 import com.pwr.dpp.backlog.dpp.business.orm.SQLiteHandler;
 

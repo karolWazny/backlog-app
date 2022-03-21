@@ -1,0 +1,9 @@
+.list-cell {
+    -fx-padding: 3 3 3 3;
+    -fx-background-color: transparent;
+    -fx-text-fill: #eeeeee;
+}
+
+.list-cell:selected {
+    -fx-background-color: #5a5a5a;
+}

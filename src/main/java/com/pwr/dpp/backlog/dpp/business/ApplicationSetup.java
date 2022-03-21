@@ -1,10 +1,6 @@
 package com.pwr.dpp.backlog.dpp.business;
 
-import com.pwr.dpp.backlog.dpp.business.orm.Comment;
-import com.pwr.dpp.backlog.dpp.business.orm.Task;
-
 import java.io.File;
-import java.util.List;
 
 public class ApplicationSetup {
     public static MainController setup(){

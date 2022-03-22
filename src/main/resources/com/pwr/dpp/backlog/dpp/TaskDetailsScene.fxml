@@ -36,7 +36,7 @@
                                                 <Font name="Segoe UI Bold" size="25.0" />
                                             </font>
                                         </Label>
-                              <TextArea fx:id="titleTextArea" onKeyPressed="#onTaskTitleEditKeyPressed" prefHeight="7.0" prefWidth="794.0" stylesheets="@styles/stylesheet.css" visible="false" />
+                              <TextArea fx:id="titleTextArea" onKeyPressed="#onTaskTitleEditKeyPressed" prefHeight="7.0" prefWidth="794.0" stylesheets="@styles/GlobalStyles.css" visible="false" />
                                         <Button layoutX="848.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="50.0" style="-fx-background-color: transparent;">
                                             <graphic>
                                                 <ImageView fx:id="taskOptionButton" fitHeight="10.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
@@ -121,9 +121,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                                 </AnchorPane>
-                        <AnchorPane fx:id="descriptionAnchorPane" onMouseClicked="#onDescriptionClick" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/stylesheet.css">
+                        <AnchorPane fx:id="descriptionAnchorPane" onMouseClicked="#onDescriptionClick" prefHeight="200.0" prefWidth="200.0" stylesheets="@styles/GlobalStyles.css">
                            <children>
-                              <TextArea fx:id="taskDescriptionTextArea" onKeyPressed="#onTaskDescriptionEditKeyPressed" prefHeight="150.0" prefWidth="899.0" stylesheets="@styles/stylesheet.css" visible="false">
+                              <TextArea fx:id="taskDescriptionTextArea" onKeyPressed="#onTaskDescriptionEditKeyPressed" prefHeight="150.0" prefWidth="899.0" stylesheets="@styles/GlobalStyles.css" visible="false">
                                  <effect>
                                     <Blend />
                                  </effect>
@@ -150,7 +150,7 @@
                         </Label>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0">
                            <children>
-                                      <ListView fx:id="commentsListView" prefHeight="99.0" prefWidth="890.0" style="-fx-background-color: transparent;" stylesheets="@styles/taskDetailsStylesheet.css" />
+                                      <ListView fx:id="commentsListView" prefHeight="99.0" prefWidth="890.0" style="-fx-background-color: transparent;" stylesheets="@styles/TaskDetailsSceneStyles.css" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -164,7 +164,7 @@
                                                 <Image url="@icons/icon-user.png" />
                                             </image>
                                         </ImageView>
-                                        <TextArea fx:id="commentTextArea" layoutX="62.0" layoutY="24.0" onKeyTyped="#onKeyTyped" prefHeight="70.0" prefWidth="826.0" promptText="Write a comment here..." style="-fx-text-fill: white; -fx-border-size: 0 0 0 0;" stylesheets="@styles/stylesheet.css">
+                                        <TextArea fx:id="commentTextArea" layoutX="62.0" layoutY="24.0" onKeyTyped="#onKeyTyped" prefHeight="70.0" prefWidth="826.0" promptText="Write a comment here..." style="-fx-text-fill: white; -fx-border-size: 0 0 0 0;" stylesheets="@styles/GlobalStyles.css">
                                             <font>
                                                 <Font name="Segoe UI" size="14.0" />
                                             </font>

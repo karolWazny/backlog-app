@@ -4,11 +4,13 @@ import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.util.Callback;
+
+import java.net.URL;
 
 public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>> {
     @Override
@@ -23,10 +25,6 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
                     setStyle("-fx-background-color: transparent");
                     setStyle("-fx-background: transparent");
                 } else {
-                    // Background color change not working
-                    setStyle("-fx-control-inner-background: #5E6366");
-                    setStyle("-fx-background: #5E6366");
-                    setStyle("-fx-background-radius: 10");
                     setGraphic(getTaskCell(task));
                     setText(null);
                 }
@@ -35,22 +33,58 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
     }
     VBox getTaskCell(Task task) {
         VBox taskPane = new VBox();
-        // Background color change not working
-        taskPane.setStyle("-fx-background-color: #5E6366");
-        taskPane.setStyle("-fx-background: #5E6366");
-        taskPane.setStyle("-fx-background-radius: 10");
+        taskPane.setId("taskBox");
+
+        AnchorPane secondRow = new AnchorPane();
+        secondRow.setId("secondRow");
 
         Label taskName = new Label();
+        ImageView userPictureImageView = new ImageView();
         Label taskAssignedUser = new Label();
+        ImageView commentsIconImageView = new ImageView();
+        Label commentsLabel = new Label();
 
-        taskName.setText("Task: " + task.getName());
-        taskAssignedUser.setText("User: " + task.getUser());
+        taskName.setText(task.getName());
+        taskName.setId("taskName");
 
-        taskName.setStyle("-fx-text-fill: white");
-        taskAssignedUser.setStyle("-fx-text-fill: white");
+        URL url = this.getClass().getResource("/com/pwr/dpp/backlog/dpp/icons/icon-user.png");
+        Image image = new Image(url.toString());
+        userPictureImageView.setImage(image);
+        userPictureImageView.setId("assignedaUserImage");
+        userPictureImageView.setFitWidth(12);
+        userPictureImageView.setFitHeight(12);
+
+        taskAssignedUser.setText(task.getUser());
+        taskAssignedUser.setId("taskAssignedUser");
+
+        url = this.getClass().getResource("/com/pwr/dpp/backlog/dpp/icons/icon-comment.png");
+        Image commentIcon = new Image(url.toString());
+        commentsIconImageView.setImage(commentIcon);
+        commentsIconImageView.setId("commentIcon");
+        commentsIconImageView.setFitWidth(10);
+        commentsIconImageView.setFitHeight(10);
+
+
+        commentsLabel.setText("0");
+        commentsLabel.setId("commentNumber");
+
+
+        userPictureImageView.setX(0);
+        userPictureImageView.setY(6);
+        taskAssignedUser.setLayoutX(20);
+        taskAssignedUser.setLayoutY(5);
+        commentsIconImageView.setX(170);
+        commentsIconImageView.setY(7);
+        commentsLabel.setLayoutX(185);
+        commentsLabel.setLayoutY(5);
+
+        secondRow.getChildren().add(userPictureImageView);
+        secondRow.getChildren().add(taskAssignedUser);
+        secondRow.getChildren().add(commentsIconImageView);
+        secondRow.getChildren().add(commentsLabel);
 
         taskPane.getChildren().add(taskName);
-        taskPane.getChildren().add(taskAssignedUser);
+        taskPane.getChildren().add(secondRow);
 
         return taskPane;
     }

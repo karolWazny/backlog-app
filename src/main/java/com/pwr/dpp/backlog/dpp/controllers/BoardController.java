@@ -56,12 +56,20 @@ public class BoardController {
         this.model = mainController.getBoardModel();
     }
 
+    /**
+     * Initializes the Board view with data.
+     */
     @FXML
     public void initialize() {
         initializeListViews();
         initializeDragAndDrop();
     }
 
+    /**
+     * Initializes ListView objects for all categories.
+     * Creates observable arrays and assigns them to corresponding list views.
+     * Sets cell factory to generate custom ListView cells.
+     */
     private void initializeListViews(){
         assertFieldsNotNull();
 
@@ -70,6 +78,9 @@ public class BoardController {
         setCellFactoryInListViews();
     }
 
+    /**
+     * Initializes drag and drop functionality for every ListView by adding event listeners.
+     */
     private void initializeDragAndDrop() {
         initializeDragAndDropForList(openTasksList, openTasks, Category.OPEN);
         initializeDragAndDropForList(toDoTasksList, toDoTasks, Category.TODO);
@@ -77,6 +88,19 @@ public class BoardController {
         initializeDragAndDropForList(closedTasksList, closedTasks, Category.CLOSED);
     }
 
+    /**
+     * Initializes drag&drop listeners for a given ListView object:
+     * - setOnDragDetected is fired when the user starts dragging the list item
+     * - setOnDragDone is fired when the dragging process has ended
+     * - setOnDragEntered is fired when user hovers over the list while dragging an item
+     * - setOnDragExited is fired when user stops hovering over the list while dragging
+     * - setOnDragOver is fired when
+     * - setOnDragDropped is fired when user lets go of an item after dragging
+     *
+     * @param listView - ListView object that will have the event listeners added
+     * @param taskList - ObservableList that contains a list of Tasks displayed within the listView
+     * @param category - Category object to indicate which category is being handled (tasks will be moved to this category when user stops dragging over the given listView).
+     */
     private void initializeDragAndDropForList(ListView<Task> listView, ObservableList<Task> taskList, Category category) {
         listView.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
@@ -135,7 +159,9 @@ public class BoardController {
         });
     }
 
-
+    /**
+     * Initializes ListView objects with ObservableLists of Tasks.
+     */
     private void setItemsInListViews(){
         this.openTasksList.setItems(this.openTasks);
         this.toDoTasksList.setItems(this.toDoTasks);
@@ -143,6 +169,10 @@ public class BoardController {
         this.closedTasksList.setItems(this.closedTasks);
     }
 
+    /**
+     * Initializes ObservableLists with Tasks from every category.
+     * Data is fetched from the database.
+     */
     private void createObservableArrays(){
         this.openTasks = FXCollections.observableArrayList(model.getOpen());
         this.toDoTasks = FXCollections.observableArrayList(model.getToDo());
@@ -150,6 +180,9 @@ public class BoardController {
         this.closedTasks = FXCollections.observableArrayList(model.getClosed());
     }
 
+    /**
+     * Checks if ObservableLists of tasks for every category are not null.
+     */
     private void assertFieldsNotNull(){
         assert openTasksList != null;
         assert toDoTasksList != null;
@@ -157,6 +190,9 @@ public class BoardController {
         assert closedTasksList != null;
     }
 
+    /**
+     * Sets a custom cell factory for every task list.
+     */
     private void setCellFactoryInListViews(){
         TaskCellFactory cellFactory = new TaskCellFactory();
 
@@ -166,6 +202,11 @@ public class BoardController {
         this.closedTasksList.setCellFactory(cellFactory);
     }
 
+    /**
+     * Method is fired when a Task is clicked on the board.
+     * After mouse click, the user will be directed to the task details view of a selected task.
+     * @param arg0 - mouse event that is fired when clicking on a Task cell
+     */
     @FXML
     public void handleMouseClick(MouseEvent arg0) {
         try {
@@ -181,6 +222,10 @@ public class BoardController {
         }
     }
 
+    /**
+     * Method responsible for switching view to New task form after clicking 'New task' button.
+     * @param event - event fired when clicking on the button
+     */
     public void goToNewTaskView(ActionEvent event) {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -190,6 +235,11 @@ public class BoardController {
         }
     }
 
+    /**
+     * Method that returns a Task object that is currently selected in any of the lists.
+     * Returns null if nothing is selected.
+     * @return currently selected Task in any of the categories
+     */
     private Task getSelectedItem() {
         Task openTask = openTasksList.getSelectionModel().getSelectedItem();
         if (openTask != null) {

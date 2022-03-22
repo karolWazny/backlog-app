@@ -51,7 +51,7 @@
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font></Label>
-                  <TextArea fx:id="descriptionField" layoutX="121.0" maxWidth="763.0" minHeight="102.0" minWidth="763.0" prefHeight="102.0" prefWidth="763.0" promptText="Write a description of your task here..." style="-fx-background-color: #1A1C1C; -fx-background-radius: 5; -fx-text-fill: white;" stylesheets="@styles/stylesheet.css" />
+                  <TextArea fx:id="descriptionField" layoutX="121.0" maxWidth="763.0" minHeight="102.0" minWidth="763.0" prefHeight="102.0" prefWidth="763.0" promptText="Write a description of your task here..." style="-fx-background-color: #1A1C1C; -fx-background-radius: 5; -fx-text-fill: white;" stylesheets="@styles/GlobalStyles.css" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -63,7 +63,7 @@
                      <font>
                         <Font name="Segoe UI Bold" size="14.0" />
                      </font></Label>
-                  <ComboBox editable="true" layoutX="121.0" prefWidth="150.0" promptText="Assign user" style="-fx-background-color: #1A1C1C;" stylesheets="@styles/stylesheet.css" />
+                  <ComboBox editable="true" layoutX="121.0" prefWidth="150.0" promptText="Assign user" style="-fx-background-color: #1A1C1C;" stylesheets="@styles/GlobalStyles.css" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" />

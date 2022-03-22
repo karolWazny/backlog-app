@@ -34,6 +34,7 @@ public class BoardController {
     private ObservableList<Task> closedTasks;
 
     private ListView<Task> previousDragAndDropList = null;
+    private ObservableList<Task> previousTaskList = null;
     private Task draggedTask = null;
 
     @FXML
@@ -70,13 +71,13 @@ public class BoardController {
     }
 
     private void initializeDragAndDrop() {
-        initializeDragAndDropForList(openTasksList, Category.OPEN);
-        initializeDragAndDropForList(toDoTasksList, Category.TODO);
-        initializeDragAndDropForList(inProgressTasksList, Category.DOING);
-        initializeDragAndDropForList(closedTasksList, Category.CLOSED);
+        initializeDragAndDropForList(openTasksList, openTasks, Category.OPEN);
+        initializeDragAndDropForList(toDoTasksList, toDoTasks, Category.TODO);
+        initializeDragAndDropForList(inProgressTasksList, inProgressTasks, Category.DOING);
+        initializeDragAndDropForList(closedTasksList, closedTasks, Category.CLOSED);
     }
 
-    private void initializeDragAndDropForList(ListView<Task> listView, Category category) {
+    private void initializeDragAndDropForList(ListView<Task> listView, ObservableList<Task> taskList, Category category) {
         listView.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle (MouseEvent mouseEvent) {
@@ -88,6 +89,7 @@ public class BoardController {
 
                 previousDragAndDropList = listView;
                 draggedTask = selectedTask;
+                previousTaskList = taskList;
                 System.out.println(draggedTask.getName());
             }
         });
@@ -100,13 +102,13 @@ public class BoardController {
         listView.setOnDragEntered(new EventHandler<DragEvent>() {
             @Override
             public void handle (DragEvent dragEvent) {
-                listView.setBlendMode(BlendMode.DIFFERENCE);
+                listView.setStyle("-fx-background-color: #2D3E41");
             }
         });
         listView.setOnDragExited(new EventHandler<DragEvent>() {
             @Override
             public void handle (DragEvent dragEvent) {
-                listView.setBlendMode(null);
+                listView.setStyle("-fx-background-color: #2A2E2F");
             }
         });
         listView.setOnDragOver(new EventHandler<DragEvent>() {
@@ -122,12 +124,13 @@ public class BoardController {
                 if (previousDragAndDropList != listView) {
                     draggedTask.setCategory(category);
                     mainController.getDatabaseHandler().saveTask(draggedTask);
-                    listView.getItems().addAll(draggedTask);
-                    previousDragAndDropList.getItems().remove(draggedTask);
+                    taskList.add(draggedTask);
+                    previousTaskList.remove(draggedTask);
                 }
                 dragEvent.setDropCompleted(true);
                 draggedTask = null;
                 previousDragAndDropList = null;
+                previousTaskList = null;
             }
         });
     }

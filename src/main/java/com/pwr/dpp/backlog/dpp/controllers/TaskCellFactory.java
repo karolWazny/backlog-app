@@ -64,10 +64,8 @@ public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>>
         commentsIconImageView.setFitWidth(10);
         commentsIconImageView.setFitHeight(10);
 
-
         commentsLabel.setText("0");
         commentsLabel.setId("commentNumber");
-
 
         userPictureImageView.setX(0);
         userPictureImageView.setY(6);

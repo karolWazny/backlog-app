@@ -31,6 +31,11 @@ public class NewTaskController {
         }
     }
 
+    /**
+     * Method that changes the current view back to the team board.
+     * If an exception occurs, nothing happens.
+     * @param event Event fired when user clicks on the 'Go back' button or the 'Cancel' button
+     */
     public void goBack(ActionEvent event) {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -40,6 +45,12 @@ public class NewTaskController {
         }
     }
 
+    /**
+     * Method responsible for creating the task.
+     * Reads data from the form and, if all fields are filled in correctly, creates a new Task object based on it.
+     * All new tasks are assigned to the OPEN category.
+     * @param event Event fired when clicking on the 'Save' button
+     */
     public void createTaskClick(ActionEvent event){
         checkForObligatoryFields();
         CreateTaskModel model = mainController.getCreateTaskModel();
@@ -52,14 +63,13 @@ public class NewTaskController {
         goBack(event);
     }
 
+    /**
+     * Method that checks if all required fields are filled in.
+     * If not, throws a RuntimeException.
+     */
     private void checkForObligatoryFields(){
         if(titleField.textProperty().get().equals("") || titleField.textProperty().isEmpty().get()){
             throw new RuntimeException("Title field cannot be empty!");
         }
     }
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
 }

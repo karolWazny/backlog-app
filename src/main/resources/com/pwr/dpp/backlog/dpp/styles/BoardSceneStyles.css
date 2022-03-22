@@ -1,0 +1,54 @@
+.toggle-switch .thumb {
+    -fx-background-color: #BCE6E8;
+}
+
+.toggle-switch:selected .thumb-area {
+    -fx-background-color: #3A8189;
+}
+
+.toggle-switch:selected .thumb {
+    -fx-background-color: #15E9F2;
+}
+
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+    -fx-background-color: #3E4345;
+}
+
+.toggle-switch .thumb-area {
+    -fx-background-color: #749397;
+}
+
+.list-cell:filled {
+    -fx-padding: 5 5 5 5;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: transparent;
+}
+
+#taskBox {
+    -fx-background-color: #5E6366;
+    -fx-background-radius: 10;
+    -fx-padding: 10 10 10 10;
+    -fx-effect: dropshadow(three-pass-box, #1C1C1C, 10, 0, 0, 3);
+}
+
+#taskName {
+    -fx-font: 14px "Segoe UI";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+}
+
+#taskAssignedUser {
+    -fx-font: 10px "Segoe UI";
+    -fx-text-fill: white;
+}
+
+#commentNumber {
+    -fx-font: 10px "Segoe UI";
+    -fx-text-fill: white;
+}
+

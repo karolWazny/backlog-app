@@ -1,0 +1,20 @@
+
+.text-area {
+    text-area-background: #1A1C1C;
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar{
+    -fx-background-color: transparent;
+}
+.combo-box .content {
+    -fx-background-color: text-area-background;
+    -fx-background-radius: 5;
+}

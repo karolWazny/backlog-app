@@ -1,18 +1,19 @@
+Resolves issue #[ISSUE_NUMBER]
+
 This MR will implement:
 
 - [ ] First change
 - [ ] Second change
 - [ ] Third change
 
-#Change details#
-##Documentation:##
+**Documentation:**
 - What was changed in the documentation
 
-##Implementation:##
+**Implementation:**
 - What was changed in the application code
 
-##Testing:##
+**Testing:**
 - What was changed in the tests (new/modified)
 
-##Next steps:##
+**Next steps:**
 - Action items that need to be done/discussed in the future

@@ -4,20 +4,24 @@ import com.pwr.dpp.backlog.dpp.SceneController;
 import com.pwr.dpp.backlog.dpp.business.ApplicationSetup;
 import com.pwr.dpp.backlog.dpp.business.MainController;
 import com.pwr.dpp.backlog.dpp.business.models.BoardModel;
+import com.pwr.dpp.backlog.dpp.business.orm.Category;
 import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Date;
 import java.util.List;
 
 public class BoardController {
@@ -28,6 +32,9 @@ public class BoardController {
     private ObservableList<Task> toDoTasks;
     private ObservableList<Task> inProgressTasks;
     private ObservableList<Task> closedTasks;
+
+    private ListView<Task> previousDragAndDropList = null;
+    private Task draggedTask = null;
 
     @FXML
     private ListView<Task> openTasksList;
@@ -51,23 +58,7 @@ public class BoardController {
     @FXML
     public void initialize() {
         initializeListViews();
-
-        this.openTasksList.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                try {
-                    Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
-                    Task selectedTask = getSelectedItem();
-                    System.out.println(selectedTask);
-                    if (selectedTask != null) {
-                        SceneController.switchToTaskDetailsScene(stage, selectedTask);
-                    }
-                } catch (Exception e) {
-                    System.out.println("2Error when selecting task");
-                    System.out.println(e);
-                }
-            }
-        });
+        initializeDragAndDrop();
     }
 
     private void initializeListViews(){
@@ -77,6 +68,70 @@ public class BoardController {
         setItemsInListViews();
         setCellFactoryInListViews();
     }
+
+    private void initializeDragAndDrop() {
+        initializeDragAndDropForList(openTasksList, Category.OPEN);
+        initializeDragAndDropForList(toDoTasksList, Category.TODO);
+        initializeDragAndDropForList(inProgressTasksList, Category.DOING);
+        initializeDragAndDropForList(closedTasksList, Category.CLOSED);
+    }
+
+    private void initializeDragAndDropForList(ListView<Task> listView, Category category) {
+        listView.setOnDragDetected(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle (MouseEvent mouseEvent) {
+                Dragboard dragboard = listView.startDragAndDrop(TransferMode.MOVE);
+                ClipboardContent content = new ClipboardContent();
+                Task selectedTask = listView.getSelectionModel().getSelectedItem();
+                content.putString(selectedTask.getName());
+                dragboard.setContent(content);
+
+                previousDragAndDropList = listView;
+                draggedTask = selectedTask;
+                System.out.println(draggedTask.getName());
+            }
+        });
+        listView.setOnDragDone(new EventHandler<DragEvent>() {
+            @Override
+            public void handle (DragEvent dragEvent) {
+                // Nothing to see here
+            }
+        });
+        listView.setOnDragEntered(new EventHandler<DragEvent>() {
+            @Override
+            public void handle (DragEvent dragEvent) {
+                listView.setBlendMode(BlendMode.DIFFERENCE);
+            }
+        });
+        listView.setOnDragExited(new EventHandler<DragEvent>() {
+            @Override
+            public void handle (DragEvent dragEvent) {
+                listView.setBlendMode(null);
+            }
+        });
+        listView.setOnDragOver(new EventHandler<DragEvent>() {
+            @Override
+            public void handle (DragEvent dragEvent) {
+                dragEvent.acceptTransferModes(TransferMode.MOVE);
+            }
+        });
+        listView.setOnDragDropped(new EventHandler<DragEvent>() {
+            @Override
+            public void handle (DragEvent dragEvent) {
+
+                if (previousDragAndDropList != listView) {
+                    draggedTask.setCategory(category);
+                    mainController.getDatabaseHandler().saveTask(draggedTask);
+                    listView.getItems().addAll(draggedTask);
+                    previousDragAndDropList.getItems().remove(draggedTask);
+                }
+                dragEvent.setDropCompleted(true);
+                draggedTask = null;
+                previousDragAndDropList = null;
+            }
+        });
+    }
+
 
     private void setItemsInListViews(){
         this.openTasksList.setItems(this.openTasks);

@@ -4,7 +4,7 @@ import com.pwr.dpp.backlog.dpp.business.orm.Category;
 
 public class CreateTaskInfo {
     private String title;
-    private String description;
+    private String description = "";
     private String username;
     private Category category;
 

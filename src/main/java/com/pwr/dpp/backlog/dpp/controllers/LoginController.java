@@ -30,10 +30,17 @@ public class LoginController {
         usernameField = new TextField();
     }
 
+    /**
+     * Method for getting the username that was typed into the login field.
+     * @return value of the username field
+     */
     public String getUsername() {
         return this.usernameField.getText();
     }
 
+    /**
+     * Initializes the component
+     */
     @FXML
     public void initialize(){
         usernameField.setOnKeyPressed((KeyEvent event)->{
@@ -43,12 +50,15 @@ public class LoginController {
         });
     }
 
+    /**
+     * Sends an information about a login attempt to the MainController object.
+     * If login is successful, changes the view to the team board.
+     * If the login was not successful, user does not get logged in and the view is not switched.
+     * @param event Event that is fired when user tries to sign in, either by pressing the ENTER key or clicking on the sign in button.
+     */
     @FXML
     public void signIn(Event event) {
         String username = this.getUsername();
-        System.out.println("username: ");
-        System.out.println(username);
-        System.out.println("Trying to log in");
         try {
             boolean loginResult = this.mainController.getLogInModel().logAs(username);
             if (loginResult) {
@@ -59,15 +69,7 @@ public class LoginController {
             }
         } catch (Exception exception) {
             // TODO: replace this with a better mechanism
-            // this.mainController.getLogInModel().createUser(username);
-            // this.mainController.getLogInModel().logAs(username);
             System.out.println("User does not exist");
         }
     }
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
-
 }

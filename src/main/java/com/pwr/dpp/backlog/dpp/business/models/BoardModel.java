@@ -58,6 +58,10 @@ public class BoardModel implements Observable {
         return listTasksWithCategoryAndUser(Category.CLOSED, user);
     }
 
+    public List<Comment> getCommentsForTask (Integer taskId) {return listCommentsUnderTask(taskId);}
+
+    public List<Comment> getCommentsForUser (String userName) {return listCommentsUnderUser(userName);}
+
     public void moveOnTodo(Task task){
         moveToCategory(task, Category.TODO);
     }

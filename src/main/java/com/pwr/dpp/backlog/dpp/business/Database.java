@@ -4,27 +4,51 @@ import com.pwr.dpp.backlog.dpp.business.SQLiteHandler;
 
 import java.sql.*;
 
+/**
+ * The class which implements SQLitehandler interface. Prepares and execute SQL statements.
+ *
+ * @author tgorniak_252697
+ */
 public class Database implements SQLiteHandler  {
     private static Connection connection;
-    //funkcje do komunikacji z bazą
+
+    /**
+     * Class constructor which setting connection to database.
+     *
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     *
+     * * @author tgorniak_252697
+     */
     public static void Database() throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
         connection = DriverManager.getConnection("jdbc:sqlite:" + System.getProperty("user.dir") + "db.db");
     }
 
+
+    /**
+     * Method that returns the result of SQL statements.
+     *
+     * @param sql SQL statement in type String
+     *
+     * @return result of SQL statement in ResultSet type
+     *
+     * @throws SQLException
+     *
+     * * @author tgorniak_252697
+     */
     public static ResultSet getStatementValues(String sql) throws SQLException{
         Statement statement = connection.prepareStatement(sql);
         return statement.executeQuery(sql);
     }
 
-    //funkcje wywolujące procedury
     @Override
-    public ResultSet getTasks() throws SQLException { //-zwraca zawartość tabel typu ResultSet
+    public ResultSet getTasks() throws SQLException {
         String procedure = "SELECT * FROM Tasks;";
         return getStatementValues(procedure);
     }
     @Override
-    public ResultSet getComments() throws SQLException{ //-zwraca zawartość tabel typu ResultSet
+    public ResultSet getComments() throws SQLException{
         String sql = "SELECT * FROM Commentary;";
         return getStatementValues(sql);
     }

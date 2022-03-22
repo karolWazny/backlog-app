@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 
 import java.security.Key;
 
+/**
+ * Controller for login view.
+ */
 public class LoginController {
     private MainController mainController;
 

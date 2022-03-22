@@ -12,7 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+/**
+ * Provides methods which are used to access the data in task details scene.
+ */
 public class TaskDetailsModel implements Observable {
     private Task task;
     private DatabaseHandler databaseHandler;
@@ -30,6 +32,10 @@ public class TaskDetailsModel implements Observable {
         return databaseHandler.getUsers();
     }
 
+    /**
+     * Assigns task to given user
+     * @param username username
+     */
     public void assignUser(String username){
         String currentAssignee = task.getUser();
         task.setUser(username);
@@ -41,14 +47,26 @@ public class TaskDetailsModel implements Observable {
         }
     }
 
+    /**
+     * Returns assigned username.
+     * @return assigned username.
+     */
     public String getAssignedUser(){
         return task.getUser() == null ? "" : task.getUser();
     }
 
+    /**
+     * Returns task description.
+     * @return task description.
+     */
     public String getDescription(){
         return task.getDescription();
     }
 
+    /**
+     * Updates task description
+     * @param description description.
+     */
     public void setDescription(String description){
         String currentDescription = task.getDescription();
         task.setDescription(description);
@@ -60,19 +78,35 @@ public class TaskDetailsModel implements Observable {
         }
     }
 
+    /**
+     * Returns task title.
+     * @return task title.
+     */
     public String getTaskTitle(){
         return task.getName();
     }
 
+    /**
+     * Returns task creation time.
+     * @return task creation time.
+     */
     public String getTimeCreated(){
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         return dateFormat.format(task.getTimeCreated());
     }
 
+    /**
+     * Returns task category.
+     * @return task category.
+     */
     public Category getStatus(){
         return task.getCategory();
     }
 
+    /**
+     * Updates task category.
+     * @param category category to set.
+     */
     public void setStatus(Category category){
         Category currentCategory = task.getCategory();
         task.setCategory(category);
@@ -84,11 +118,18 @@ public class TaskDetailsModel implements Observable {
         }
     }
 
+    /**
+     * Deletes task.
+     */
     public void deleteTask(){
         databaseHandler.deleteTask(task);
         task = null;
     }
 
+    /**
+     * Adds comment to task.
+     * @param content comment content.
+     */
     public void addComment(String content){
         String user = loggedUserRepository.getLoggedUser();
         Comment comment = new Comment();
@@ -103,11 +144,18 @@ public class TaskDetailsModel implements Observable {
         }
     }
 
+    /**
+     * Invalidates comments.
+     */
     private void invalidateComments(){
         invalidatedComments = true;
         invalidate();
     }
 
+    /**
+     * Returns all task comments.
+     * @return {@link List} of {@link Comment} assigned to task.
+     */
     public List<Comment> getComments(){
         if(invalidatedComments){
             comments = databaseHandler.getCommentsForTask(task.getId());
@@ -116,10 +164,18 @@ public class TaskDetailsModel implements Observable {
         return comments;
     }
 
+    /**
+     * Returns database handler.
+     * @return {@link DatabaseHandler}
+     */
     public DatabaseHandler getDatabaseHandler() {
         return databaseHandler;
     }
 
+    /**
+     * Sets database handler to given {@link DatabaseHandler}.
+     * @param databaseHandler {@link DatabaseHandler} to set.
+     */
     public void setDatabaseHandler(DatabaseHandler databaseHandler) {
         this.databaseHandler = databaseHandler;
     }
@@ -134,6 +190,7 @@ public class TaskDetailsModel implements Observable {
         listeners.remove(invalidationListener);
     }
 
+
     public void invalidate(){
         for (InvalidationListener listener:
                 listeners) {
@@ -141,14 +198,25 @@ public class TaskDetailsModel implements Observable {
         }
     }
 
+    /**
+     * Sets logged user repository.
+     * @param loggedUserRepository {@link LoggedUserRepository} to set.
+     */
     public void setLoggedUserRepository(LoggedUserRepository loggedUserRepository) {
         this.loggedUserRepository = loggedUserRepository;
     }
 
+    /**
+     * Sets task.
+     * @param task {@link Task} to set.
+     */
     public void setTask(Task task) {
         this.task = task;
     }
 
+    /**
+     * Returns task.
+     */
     public Task getTask() {
         return task;
     }

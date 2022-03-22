@@ -12,6 +12,9 @@ import javafx.util.Callback;
 
 import java.net.URL;
 
+/**
+ *  Used to create {@link Task} graphic representation.
+ */
 public class TaskCellFactory implements Callback<ListView<Task>, ListCell<Task>> {
     @Override
     public ListCell<Task> call(ListView<Task> param) {

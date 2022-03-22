@@ -24,6 +24,9 @@ import javafx.stage.Stage;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Controller for board view.
+ */
 public class BoardController {
     private MainController mainController;
     private BoardModel model;
@@ -46,6 +49,9 @@ public class BoardController {
     @FXML
     private ListView<Task> closedTasksList;
 
+    /**
+     * Creates board controller.
+     */
     public BoardController(){
         if(SceneController.getMainController()!=null) {
             this.mainController = SceneController.getMainController();
@@ -56,6 +62,9 @@ public class BoardController {
         this.model = mainController.getBoardModel();
     }
 
+    /**
+     * Initializes controller.
+     */
     @FXML
     public void initialize() {
         initializeListViews();
@@ -166,6 +175,9 @@ public class BoardController {
         this.closedTasksList.setCellFactory(cellFactory);
     }
 
+    /**
+     * Mouse click handler.
+     */
     @FXML
     public void handleMouseClick(MouseEvent arg0) {
         try {
@@ -181,6 +193,9 @@ public class BoardController {
         }
     }
 
+    /**
+     * Switches scene to new task view.
+     */
     public void goToNewTaskView(ActionEvent event) {
         try {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

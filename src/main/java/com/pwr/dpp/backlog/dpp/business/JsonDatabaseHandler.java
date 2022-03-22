@@ -13,7 +13,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-
+/**
+ * Allows reading and writing JSON datafiles.
+ */
 public class JsonDatabaseHandler implements DatabaseHandler {
     private Path commentsPath;
     private Path tasksPath;
@@ -24,6 +26,13 @@ public class JsonDatabaseHandler implements DatabaseHandler {
     private List<Comment> comments;
     private List<String> users;
 
+    /**
+     * Initializes {@link JsonDatabaseHandler}
+     * @param databaseDirectoryPath database directory path.
+     * @param tasksFilename name of the file to store tasks. If it doesn't contain ".json" extension, it will be added automatically.
+     * @param commentsFilename name of the file to store tasks. If it doesn't contain ".json" extension, it will be added automatically.
+     * @param usersFilename name of the file to store tasks. If it doesn't contain ".json" extension, it will be added automatically.
+     */
     public JsonDatabaseHandler(String databaseDirectoryPath, String tasksFilename, String commentsFilename, String usersFilename) {
         objectMapper = new ObjectMapper();
         Path databaseDirPath = Paths.get(databaseDirectoryPath);
@@ -43,6 +52,9 @@ public class JsonDatabaseHandler implements DatabaseHandler {
         load();
     }
 
+    /**
+     * Saves example database which can be used for testing purposes.
+     */
     public void saveDefaultDataBase() {
         Random random = new Random(System.currentTimeMillis());
         Category[] categories = new Category[]{Category.DOING, Category.CLOSED, Category.OPEN, Category.TODO};
@@ -116,7 +128,6 @@ public class JsonDatabaseHandler implements DatabaseHandler {
 
     /**
      * Adds given {@link Task} to tasks {@link List}, if task with the same id exists, it overwrites existing task.
-     *
      * @param task
      */
     @Override
@@ -204,7 +215,6 @@ public class JsonDatabaseHandler implements DatabaseHandler {
 
     /**
      * Adds given {@link Comment} to comments {@link List}, if comment with the same id exists, it overwrites existing commment.
-     *
      * @param comment comment to add/update.
      */
     @Override

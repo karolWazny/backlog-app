@@ -13,6 +13,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ *  Used to switch between scenes.
+ */
 public class SceneController {
     private static Stage stage;
     private static Scene scene;
@@ -20,7 +23,12 @@ public class SceneController {
     private static MainController mainController;
     private static FXMLLoader loader;
 
-
+    /**
+     * Switches scene in given stage to given scene.
+     * @param s stage in which scene should be switched.
+     * @param sceneFxml - FXML file with scene.
+     * @throws Exception when FXML file cannot be read.
+     */
     private static void switchScene(Stage s, String sceneFxml) throws Exception {
         loader = new FXMLLoader(SceneController.class.getResource(sceneFxml));
         root = loader.load();
@@ -30,16 +38,29 @@ public class SceneController {
         stage.show();
     }
 
+    /**
+     * Switches to login scene.
+     * @param s stage in which scene should be switched.
+     * @throws Exception when FXML file cannot be read.
+     */
     public static void switchToLoginScene(Stage s) throws Exception {
         switchScene(s, "LoginScene.fxml");
         s.setTitle("Backlogger - Sign in");
     }
-
+    /**
+     * Switches to board scene.
+     * @param s stage in which scene should be switched.
+     * @throws Exception when FXML file cannot be read.
+     */
     public static void switchToBoardScene(Stage s) throws Exception {
         switchScene(s, "BoardScene.fxml");
         s.setTitle("Backlogger - Team board");
     }
-
+    /**
+     * Switches to task details scene.
+     * @param s stage in which scene should be switched.
+     * @throws Exception when FXML file cannot be read.
+     */
     public static void switchToTaskDetailsScene(Stage s, Task task) throws Exception {
         switchScene(s, "TaskDetailsScene.fxml");
         Object c = loader.getController();
@@ -49,7 +70,11 @@ public class SceneController {
         }
         s.setTitle("Backlogger - Task");
     }
-
+    /**
+     * Switches to new task scene.
+     * @param s stage in which scene should be switched.
+     * @throws Exception when FXML file cannot be read.
+     */
     public static void switchToNewTaskScene(Stage s) throws Exception {
         switchScene(s, "NewTaskScene.fxml");
         s.setTitle("Backlogger - New task");

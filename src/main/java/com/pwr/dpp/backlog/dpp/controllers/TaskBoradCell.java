@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.VBox;
 
+
 public class TaskBoradCell extends ListCell<Task> {
 
     private Label taskNameLabel = new Label();

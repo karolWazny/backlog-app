@@ -1,8 +1,10 @@
 package com.pwr.dpp.backlog.dpp.business.orm;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 
+/**
+ * Represents task.
+ */
 public class Task {
     private Integer id;
     private String name;

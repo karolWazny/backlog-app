@@ -1,9 +1,11 @@
 package com.pwr.dpp.backlog.dpp.business.orm;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Represents comment.
+ */
 public class Comment implements Comparable<Comment>{
     private Integer id;
     private Task task;
@@ -11,6 +13,14 @@ public class Comment implements Comparable<Comment>{
     private String content;
     private String author;
 
+    /**
+     * Creates new comment
+     * @param id id
+     * @param task related task.
+     * @param timeCreated creation time
+     * @param content comment content
+     * @param author author username.
+     */
     public Comment(Integer id, Task task, Date timeCreated, String content, String author) {
         this.id = id;
         this.task = task;
@@ -19,6 +29,9 @@ public class Comment implements Comparable<Comment>{
         this.author = author;
     }
 
+    /**
+     * Creates new {@link Comment} with creation time set to current system time.
+     */
     public Comment() {
         timeCreated = new Date(System.currentTimeMillis());
     }

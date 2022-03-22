@@ -2,6 +2,9 @@ package com.pwr.dpp.backlog.dpp.business.models;
 
 import com.pwr.dpp.backlog.dpp.business.orm.Category;
 
+/**
+ * Used to store information about task we want to create.
+ */
 public class CreateTaskInfo {
     private String title;
     private String description = "";

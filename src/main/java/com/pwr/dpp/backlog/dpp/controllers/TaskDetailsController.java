@@ -30,6 +30,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Controller for task details scene.
+ */
 public class TaskDetailsController {
     private MainController mainController;
     private TaskDetailsModel task;

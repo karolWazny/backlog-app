@@ -2,11 +2,18 @@ package com.pwr.dpp.backlog.dpp.business.models;
 
 import com.pwr.dpp.backlog.dpp.business.DatabaseHandler;
 import com.pwr.dpp.backlog.dpp.business.LoggedUserRepository;
-
+/**
+ * Provides methods which are used to access the data in log in scene.
+ */
 public class LogInModel {
     private DatabaseHandler databaseHandler;
     private LoggedUserRepository loggedUserRepository;
 
+    /**
+     * Logs given user in.
+     * @param user username
+     * @return true if login succeeded, false otherwise.
+     */
     public boolean logAs(String user){
         boolean logInSuccessful =  databaseHandler.logAs(user);
         if(logInSuccessful){
@@ -15,6 +22,10 @@ public class LogInModel {
         return logInSuccessful;
     }
 
+    /**
+     * Creates user with given username.
+     * @param username username
+     */
     public void createUser(String username){
         if(!databaseHandler.createUser(username))
             throw new RuntimeException("Could not create user!");

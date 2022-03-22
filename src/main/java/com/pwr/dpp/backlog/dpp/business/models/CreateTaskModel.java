@@ -7,7 +7,9 @@ import com.pwr.dpp.backlog.dpp.business.orm.Task;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
-
+/**
+ * Provides methods which are used to access the data in create new task scene.
+ */
 public class CreateTaskModel {
     private DatabaseHandler databaseHandler;
 
@@ -15,6 +17,10 @@ public class CreateTaskModel {
         return databaseHandler.getUsers();
     }
 
+    /**
+     * Creates task basing on information given in given {@link CreateTaskInfo}
+     * @param info {@link CreateTaskInfo} which should contain information about the task we want to create.
+     */
     public void createTask(CreateTaskInfo info){
         Task task = new Task();
         task.setTimeCreated(new Date(System.currentTimeMillis()));

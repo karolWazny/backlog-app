@@ -1,0 +1,51 @@
+.split-pane *.split-pane-divider {
+    -fx-padding: 0 1 0 1;
+    -fx-background-color: #3E4345;
+}
+
+.toggle-switch .thumb-area {
+    -fx-background-color: #749397;
+}
+
+.toggle-switch .thumb {
+    -fx-background-color: #BCE6E8;
+}
+
+.toggle-switch:selected .thumb-area {
+    -fx-background-color: #3A8189;
+}
+
+.toggle-switch:selected .thumb {
+    -fx-background-color: #15E9F2;
+}
+
+.text-area {
+    text-area-background: #1A1C1C;
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.text-area .content {
+    -fx-background-color: text-area-background;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar{
+    -fx-background-color: transparent;
+}
+.combo-box .content {
+    -fx-background-color: text-area-background;
+    -fx-background-radius: 5;
+}
+
+.list-cell:filled {
+    -fx-padding: 3 3 3 3;
+    -fx-background-color: #5E6366;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #768C9A;
+}
